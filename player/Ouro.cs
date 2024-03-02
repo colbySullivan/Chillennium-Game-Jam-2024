@@ -91,7 +91,6 @@ public partial class Ouro : CharacterBody2D
 	}
 	private void _on_ray_cast_2d_draw()
 	{
-		GD.Print("yippee");
 		grapple = true;
 		QueueRedraw();
 	}
