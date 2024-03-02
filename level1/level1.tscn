@@ -1,23 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3wur2putrrun"]
+[gd_scene load_steps=9 format=3 uid="uid://c3wur2putrrun"]
 
 [ext_resource type="PackedScene" uid="uid://cogywm1tc5fw1" path="res://player/ouro.tscn" id="1_0nmty"]
+[ext_resource type="Script" path="res://level1/level1.cs" id="1_bfcc0"]
 [ext_resource type="Texture2D" uid="uid://ddtfh0jckj6xb" path="res://Art/Scene_One_BackgroundFallen.png" id="1_oldgi"]
 [ext_resource type="PackedScene" uid="uid://b8e0mnw058n5t" path="res://player/soul.tscn" id="3_ljyyi"]
+[ext_resource type="PackedScene" uid="uid://cmwg7pwe300yl" path="res://player/bat.tscn" id="4_sjfkw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7rya"]
-size = Vector2(2187, 44.5)
+size = Vector2(3093.5, 44.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdv1n"]
 size = Vector2(207, 27)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_64b7n"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Level1" type="Node2D"]
 position = Vector2(532, 217)
+script = ExtResource("1_bfcc0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(561.434, 57)
-scale = Vector2(0.634609, 0.366316)
+position = Vector2(-0.499817, 57)
+scale = Vector2(0.955714, 0.366316)
 texture = ExtResource("1_oldgi")
 
 [node name="Ouro" parent="." instance=ExtResource("1_0nmty")]
@@ -29,7 +32,7 @@ position = Vector2(-384, -148)
 position = Vector2(542, 188)
 
 [node name="Floor" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(4, 22)
+position = Vector2(-449.25, 22)
 shape = SubResource("RectangleShape2D_m7rya")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
@@ -46,3 +49,17 @@ texture = SubResource("CanvasTexture_64b7n")
 
 [node name="Soul" parent="." instance=ExtResource("3_ljyyi")]
 position = Vector2(135, 143)
+
+[node name="Bat" parent="." instance=ExtResource("4_sjfkw")]
+position = Vector2(-30, 155)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 5.997
+autostart = true
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 20.444
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
