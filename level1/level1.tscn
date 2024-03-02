@@ -24,7 +24,7 @@ scale = Vector2(0.955714, 0.366316)
 texture = ExtResource("1_oldgi")
 
 [node name="Ouro" parent="." instance=ExtResource("1_0nmty")]
-position = Vector2(-384, -148)
+position = Vector2(-210, 115)
 
 [node name="Camera2D" type="Camera2D" parent="Ouro"]
 

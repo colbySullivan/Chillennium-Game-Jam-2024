@@ -14,6 +14,8 @@ public partial class Ouro : CharacterBody2D
 	private RayCast2D _ray;
 	
 	private String _sceneName;
+	
+	private bool grapple = false;
 
 	public override void _Ready()
 	{
@@ -21,6 +23,16 @@ public partial class Ouro : CharacterBody2D
 		_animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		_ray = GetNode<RayCast2D>("RayCast2D");
 		_sceneName = GetTree().CurrentScene.Name;
+	}
+	
+	public override void _Draw()
+	{
+		if (_ray.IsColliding())
+		{
+			DrawLine(Vector2.Zero, ToLocal(_ray.GetCollisionPoint()), new Color(1, 0, 0), 1);
+			DrawCircle(ToLocal(_ray.GetCollisionPoint()), 5, new Color(1,0,0));
+		}
+		
 	}
 	
 	public override void _PhysicsProcess(double delta)
@@ -31,7 +43,8 @@ public partial class Ouro : CharacterBody2D
 //
 		//`draw_circle(RaycastWeapon.get_collision_point(), 5, Color(1,0,0))`
 		//ToLocal(_ray.GetCollisionPoint());
-		//if (_ray.IsColliding())
+		if (_ray.IsColliding())
+			_on_ray_cast_2d_draw();
 		//DrawLine(Position, new Vector2(10,10), new Color(1, 0, 0), 1);
 		//_ray.DrawLine(Vector2.Zero, ToLocal(_ray.GetCollisionPoint()), new Color(1, 1, 0), 1);
 		Vector2 velocity = Velocity;
@@ -41,8 +54,9 @@ public partial class Ouro : CharacterBody2D
 			velocity.Y += gravity * (float)delta;
 
 		// Handle Jump.
-		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
+		if (Input.IsActionJustPressed("ui_accept") && (IsOnFloor() || grapple))
 			velocity.Y = JumpVelocity;
+		
 
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
@@ -61,9 +75,8 @@ public partial class Ouro : CharacterBody2D
 	}
 	private void _on_ray_cast_2d_draw()
 	{
-		DrawLine(Vector2.Zero, new Vector2(10,10), new Color(1, 1, 0), 1);
+		GD.Print("yippee");
+		grapple = true;
+		QueueRedraw();
 	}
 }
-
-
-
