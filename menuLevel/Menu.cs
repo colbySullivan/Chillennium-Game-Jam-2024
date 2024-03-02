@@ -3,11 +3,13 @@ using System;
 
 public partial class Menu : Control
 {
+	private AnimatedSprite2D LoadAnim;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		// Initializes the menu by grabbing focus on the "Start" button
 		GetNode<Button>("VBoxContainer/Start").GrabFocus();
+		LoadAnim = GetNode<AnimatedSprite2D>("LoadIn");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,7 +22,9 @@ public partial class Menu : Control
 	private void _on_start_pressed()
 	{
 		// Changes the scene to the "level1.tscn" file
-		GetTree().ChangeSceneToFile("res://level1/level1.tscn");
+		LoadAnim.Play("default");
+		// Moved this to after animation is done
+		//GetTree().ChangeSceneToFile("res://levels/level1.tscn");
 	}
 
 	// Called when the "Quit" button is pressed
@@ -28,5 +32,9 @@ public partial class Menu : Control
 	{
 		// Quits the game
 		GetTree().Quit();
+	}
+	private void _on_load_in_animation_looped()
+	{
+		GetTree().ChangeSceneToFile("res://level1/level1.tscn");
 	}
 }
