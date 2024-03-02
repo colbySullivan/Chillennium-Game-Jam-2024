@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c3wur2putrrun"]
+[gd_scene load_steps=14 format=3 uid="uid://c3wur2putrrun"]
 
 [ext_resource type="PackedScene" uid="uid://cogywm1tc5fw1" path="res://player/ouro.tscn" id="1_0nmty"]
 [ext_resource type="Script" path="res://level1/level1.cs" id="1_bfcc0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dfi7ix0tyigwg" path="res://Art/platforms/Level 1 platformer.png" id="5_xt8d7"]
 [ext_resource type="PackedScene" uid="uid://bcc8prk3rpbl5" path="res://player/scorpion.tscn" id="6_qdj7u"]
 [ext_resource type="AudioStream" uid="uid://c6lxdfgn7c267" path="res://Art/Fallen_Stage_One.mp3" id="8_uyv2j"]
+[ext_resource type="PackedScene" uid="uid://cq32r0fb0jvgi" path="res://player/squirrel.tscn" id="10_aty1c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7rya"]
 size = Vector2(3093.5, 44.5)
@@ -181,7 +182,7 @@ scale = Vector2(208, 27)
 texture = SubResource("CanvasTexture_64b7n")
 
 [node name="Bat" parent="." instance=ExtResource("4_sjfkw")]
-position = Vector2(-30, 155)
+position = Vector2(316, -65)
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 5.997
@@ -197,6 +198,15 @@ autoplay = true
 [node name="Souls" type="Node" parent="."]
 
 [node name="Soul" parent="Souls" instance=ExtResource("3_ljyyi")]
-position = Vector2(667, 360)
+position = Vector2(658, 223)
+
+[node name="Soul2" parent="Souls" instance=ExtResource("3_ljyyi")]
+position = Vector2(362, -126)
+
+[node name="Soul3" parent="Souls" instance=ExtResource("3_ljyyi")]
+position = Vector2(305, -908)
+
+[node name="Squirrel" parent="." instance=ExtResource("10_aty1c")]
+position = Vector2(-315, -98)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
