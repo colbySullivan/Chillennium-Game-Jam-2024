@@ -38,6 +38,26 @@ public partial class batFinal : CharacterBody2D
 		var random = new RandomNumberGenerator();
 		randPosition = new Vector2(random.RandiRange(50, 1100),random.RandiRange(50, 375));
 	}
+	private void _on_area_2d_body_entered(Node2D body)
+	{
+		if(body.Name == "Ouro")
+		{
+			var global = (PlayerVariables) GetNode("/root/PlayerVariables");
+			global.ResetSouls();
+			GetTree().ChangeSceneToFile("res://player/boss.tscn");
+		}
+	}
+	private void _stomp(Node2D body)
+	{
+		if(body.Name == "Ouro")
+			QueueFree();
+	}
+	private void _attacked(Rid area_rid, Area2D area, long area_shape_index, long local_shape_index)
+	{
+		if(area.Name == "SwordArea")
+			QueueFree();
+	}
+	
 }
 
 
