@@ -31,6 +31,7 @@ shape = SubResource("RectangleShape2D_uywoc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)
+scale = Vector2(0.356667, 0.353333)
 sprite_frames = SubResource("SpriteFrames_5tbgb")
 animation = &"idle"
 

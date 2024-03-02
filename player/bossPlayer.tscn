@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://br1hvaxf2tn4r"]
+
+[ext_resource type="Script" path="res://player/bossPlayer.cs" id="1_pyktd"]
+[ext_resource type="Texture2D" uid="uid://drneldb8tqark" path="res://Art/base bird.png" id="2_fikai"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_al784"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fikai")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8a23n"]
+size = Vector2(56, 48)
+
+[node name="Boss" type="CharacterBody2D"]
+script = ExtResource("1_pyktd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3.00009, -5.00009)
+scale = Vector2(0.103333, 0.103333)
+sprite_frames = SubResource("SpriteFrames_al784")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.999878, 0.999878)
+shape = SubResource("RectangleShape2D_8a23n")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
