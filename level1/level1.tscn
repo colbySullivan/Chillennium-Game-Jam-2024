@@ -21,8 +21,14 @@ size = Vector2(207, 27)
 position = Vector2(532, 217)
 script = ExtResource("1_bfcc0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(9, -70)
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(626, -1556)
+scale = Vector2(2, 2)
 texture = ExtResource("1_oldgi")
 
 [node name="Ouro" parent="." instance=ExtResource("1_0nmty")]
@@ -37,6 +43,7 @@ script = ExtResource("4_n7jsb")
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Test"
+metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(542, 188)
@@ -69,7 +76,7 @@ scale = Vector2(208, 27)
 texture = SubResource("CanvasTexture_64b7n")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Platforms"]
-position = Vector2(-83, -297)
+position = Vector2(-723, -766)
 shape = SubResource("RectangleShape2D_pdv1n")
 one_way_collision = true
 
@@ -89,7 +96,7 @@ scale = Vector2(208, 27)
 texture = SubResource("CanvasTexture_64b7n")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Platforms"]
-position = Vector2(296, -436)
+position = Vector2(-462, -1476)
 shape = SubResource("RectangleShape2D_pdv1n")
 one_way_collision = true
 
@@ -104,6 +111,69 @@ shape = SubResource("RectangleShape2D_pdv1n")
 one_way_collision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Platforms/CollisionShape2D6"]
+position = Vector2(-4.14848e-05, 1.90735e-06)
+scale = Vector2(208, 27)
+texture = SubResource("CanvasTexture_64b7n")
+
+[node name="PlatformsCopy" type="StaticBody2D" parent="Platforms"]
+position = Vector2(475, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/PlatformsCopy"]
+position = Vector2(-406, -976)
+shape = SubResource("RectangleShape2D_pdv1n")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Platforms/PlatformsCopy/CollisionShape2D"]
+position = Vector2(-4.14848e-05, 1.90735e-06)
+scale = Vector2(208, 27)
+texture = SubResource("CanvasTexture_64b7n")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platforms/PlatformsCopy"]
+position = Vector2(-793, -131)
+shape = SubResource("RectangleShape2D_pdv1n")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Platforms/PlatformsCopy/CollisionShape2D2"]
+position = Vector2(-4.14848e-05, 1.90735e-06)
+scale = Vector2(208, 27)
+texture = SubResource("CanvasTexture_64b7n")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Platforms/PlatformsCopy"]
+position = Vector2(-618, -1335)
+shape = SubResource("RectangleShape2D_pdv1n")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Platforms/PlatformsCopy/CollisionShape2D3"]
+position = Vector2(-4.14848e-05, 1.90735e-06)
+scale = Vector2(208, 27)
+texture = SubResource("CanvasTexture_64b7n")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Platforms/PlatformsCopy"]
+position = Vector2(-645, -374)
+shape = SubResource("RectangleShape2D_pdv1n")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Platforms/PlatformsCopy/CollisionShape2D4"]
+position = Vector2(-4.14848e-05, 1.90735e-06)
+scale = Vector2(208, 27)
+texture = SubResource("CanvasTexture_64b7n")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Platforms/PlatformsCopy"]
+position = Vector2(-1255, -1240)
+shape = SubResource("RectangleShape2D_pdv1n")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Platforms/PlatformsCopy/CollisionShape2D5"]
+position = Vector2(-4.14848e-05, 1.90735e-06)
+scale = Vector2(208, 27)
+texture = SubResource("CanvasTexture_64b7n")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Platforms/PlatformsCopy"]
+position = Vector2(-353, -638)
+shape = SubResource("RectangleShape2D_pdv1n")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Platforms/PlatformsCopy/CollisionShape2D6"]
 position = Vector2(-4.14848e-05, 1.90735e-06)
 scale = Vector2(208, 27)
 texture = SubResource("CanvasTexture_64b7n")
