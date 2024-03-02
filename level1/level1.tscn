@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3wur2putrrun"]
+[gd_scene load_steps=12 format=3 uid="uid://c3wur2putrrun"]
 
 [ext_resource type="PackedScene" uid="uid://cogywm1tc5fw1" path="res://player/ouro.tscn" id="1_0nmty"]
 [ext_resource type="Script" path="res://level1/level1.cs" id="1_bfcc0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://level1/CanvasLayer.cs" id="4_n7jsb"]
 [ext_resource type="PackedScene" uid="uid://cmwg7pwe300yl" path="res://player/bat.tscn" id="4_sjfkw"]
 [ext_resource type="PackedScene" uid="uid://bcc8prk3rpbl5" path="res://player/scorpion.tscn" id="6_qdj7u"]
+[ext_resource type="AudioStream" uid="uid://c6lxdfgn7c267" path="res://Art/Fallen_Stage_One.mp3" id="8_uyv2j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7rya"]
 size = Vector2(3093.5, 44.5)
@@ -83,6 +84,10 @@ autostart = true
 
 [node name="Scorpion" parent="." instance=ExtResource("6_qdj7u")]
 position = Vector2(508, 62)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_uyv2j")
+autoplay = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
