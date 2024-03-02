@@ -22,15 +22,7 @@ public partial class level1 : Node2D
 		// Bat
 		var scene = GD.Load<PackedScene>("res://player/bat.tscn");
 		var instance = scene.Instantiate();
-		
-		//instance.Position = _Ouro.Position;
 		AddChild(instance);
-		
-		// Scoprion
-		//var scene = GD.Load<PackedScene>("res://player/scorpion.tscn");
-		//var instance = scene.Instantiate();
-		////instance.Positon.X = _Ouro.Position.X + 10;
-		//AddChild(instance);
 	}
 	private void _on_portal_body_entered(Node2D body)
 	{

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://1m7nqai0fn8o"]
+
+[ext_resource type="Texture2D" uid="uid://ddtfh0jckj6xb" path="res://Art/Scene_One_BackgroundFallen.png" id="1_2kawx"]
+[ext_resource type="Script" path="res://player/FirstCutScene.cs" id="1_bfemc"]
+
+[node name="Cutscene1" type="Node2D"]
+script = ExtResource("1_bfemc")
+
+[node name="SceneOneBackgroundFallen" type="Sprite2D" parent="."]
+position = Vector2(586.5, 319.5)
+scale = Vector2(0.332286, 0.232632)
+texture = ExtResource("1_2kawx")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 984.0
+offset_top = 600.0
+offset_right = 1130.0
+offset_bottom = 623.0
+text = "Press space to skip"

@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://81veqqrbscic"]
+
+[ext_resource type="Script" path="res://player/final_cutscene.cs" id="1_0tyjs"]
+[ext_resource type="Texture2D" uid="uid://tl3gpj2swpl" path="res://Art/Scene_Three_Fallen.png" id="1_hxsxq"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_we8f0"]
+file = "res://Art/Cutscene 1.ogv"
+
+[node name="FinalCutscene" type="Node2D"]
+script = ExtResource("1_0tyjs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(584, 560)
+scale = Vector2(0.528977, 0.404932)
+texture = ExtResource("1_hxsxq")
+
+[node name="SceneThreeFallen" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(584, -40)
+scale = Vector2(0.522045, 0.375069)
+texture = ExtResource("1_hxsxq")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Press space to skip"
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -350.0
+offset_top = -445.0
+offset_right = 1570.0
+offset_bottom = 643.0
+stream = SubResource("VideoStreamTheora_we8f0")
+autoplay = true
+expand = true

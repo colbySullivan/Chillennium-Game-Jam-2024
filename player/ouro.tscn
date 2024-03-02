@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://player/CollisionShape2D.cs" id="3_0d6g1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uywoc"]
-size = Vector2(28.5, 47)
+size = Vector2(30, 63)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5tbgb"]
 animations = [{
@@ -26,12 +26,12 @@ slide_on_ceiling = false
 script = ExtResource("1_77fd3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.75, -3.5)
+position = Vector2(1, -11.5)
 shape = SubResource("RectangleShape2D_uywoc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, 0)
-scale = Vector2(0.356667, 0.353333)
+position = Vector2(4, -9)
+scale = Vector2(0.498334, 0.496667)
 sprite_frames = SubResource("SpriteFrames_5tbgb")
 animation = &"idle"
 

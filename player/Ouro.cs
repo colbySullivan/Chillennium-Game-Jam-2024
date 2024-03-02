@@ -35,8 +35,8 @@ public partial class Ouro : CharacterBody2D
 	{
 		if (_ray.IsColliding())
 		{
-			DrawLine(Vector2.Zero, ToLocal(_ray.GetCollisionPoint()), new Color(1, 0, 0), 1);
-			DrawCircle(ToLocal(_ray.GetCollisionPoint()), 5, new Color(1,0,0));
+			DrawLine(Vector2.Zero, ToLocal(_ray.GetCollisionPoint()), new Color(0, 1, 0, 1), 1);
+			DrawCircle(ToLocal(_ray.GetCollisionPoint()), 5, new Color(0, 1, 0, 1));
 			has_double_jump = true;
 		}
 		

@@ -13,6 +13,8 @@ public partial class bossPlayer : CharacterBody2D
 	public int startState = 0;
 	
 	public Vector2 delayedPos;
+	
+	public Timer _timer;
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
@@ -24,19 +26,20 @@ public partial class bossPlayer : CharacterBody2D
 		_Ouro = GetParent().GetNode<CharacterBody2D>("Ouro");
 		base._Ready();
 		var random = new RandomNumberGenerator();
+		_timer = GetParent().GetNode<Timer>("Countdown");
 	}
 	
 	
 	public override void _PhysicsProcess(double delta)
 	{
 		// Skuffed state machine
-		if(startState < 3)
+		if(_timer.TimeLeft > 70)
 		{
 			_animatedSprite.Play("default");
 			if(Position.X > delayedPos.X)
-				_animatedSprite.FlipH = false;
-			else
 				_animatedSprite.FlipH = true;
+			else
+				_animatedSprite.FlipH = false;
 			Velocity += (delayedPos - Position) / 100;
 			Vector2 velocity = Velocity;
 			// Add the gravity.
@@ -47,24 +50,14 @@ public partial class bossPlayer : CharacterBody2D
 			Velocity = velocity;
 			MoveAndSlide();
 		}
-		if(startState >= 3)
+		else
 		{
 			_animatedSprite.Play("default");
 			if(Position.X > delayedPos.X)
-				_animatedSprite.FlipH = false;
-			else
 				_animatedSprite.FlipH = true;
+			else
+				_animatedSprite.FlipH = false;
 			Position += (delayedPos - Position) / 40;
-		}
-	}
-	
-	private void _on_area_2d_body_entered(Node2D body)
-	{
-		if(body.Name == "Ouro")
-		{
-			var global = (PlayerVariables) GetNode("/root/PlayerVariables");
-			global.ResetSouls();
-			GetTree().ChangeSceneToFile("res://menuLevel/menu.tscn");
 		}
 	}
 	private void _on_timer_timeout()
@@ -77,4 +70,14 @@ public partial class bossPlayer : CharacterBody2D
 			startState++;
 			//QueueFree();
 	}
+	private void _on_attack_box_body_entered(Node2D body)
+	{
+		if(body.Name == "Ouro")
+		{
+			var global = (PlayerVariables) GetNode("/root/PlayerVariables");
+			global.ResetSouls();
+			GetTree().ChangeSceneToFile("res://player/boss.tscn");
+		}
+	}
+
 }

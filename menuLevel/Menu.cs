@@ -35,6 +35,6 @@ public partial class Menu : Control
 	}
 	private void _on_load_in_animation_looped()
 	{
-		GetTree().ChangeSceneToFile("res://level1/level1.tscn");
+		GetTree().ChangeSceneToFile("res://player/cutscene_1.tscn");
 	}
 }
