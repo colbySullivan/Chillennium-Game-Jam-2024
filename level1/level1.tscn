@@ -21,8 +21,7 @@ position = Vector2(532, 217)
 script = ExtResource("1_bfcc0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-0.499817, 57)
-scale = Vector2(0.955714, 0.366316)
+position = Vector2(9, -70)
 texture = ExtResource("1_oldgi")
 
 [node name="Ouro" parent="." instance=ExtResource("1_0nmty")]
