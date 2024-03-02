@@ -53,6 +53,7 @@ position = Vector2(-320, -32)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_pdv1n")
+one_way_collision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3/CollisionShape2D"]
 position = Vector2(-4.14848e-05, 1.90735e-06)

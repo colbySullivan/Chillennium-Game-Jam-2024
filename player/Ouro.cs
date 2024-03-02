@@ -16,6 +16,8 @@ public partial class Ouro : CharacterBody2D
 	private String _sceneName;
 	
 	private bool grapple = false;
+	
+	public bool has_double_jump = true;
 
 	public override void _Ready()
 	{
@@ -31,6 +33,7 @@ public partial class Ouro : CharacterBody2D
 		{
 			DrawLine(Vector2.Zero, ToLocal(_ray.GetCollisionPoint()), new Color(1, 0, 0), 1);
 			DrawCircle(ToLocal(_ray.GetCollisionPoint()), 5, new Color(1,0,0));
+			has_double_jump = true;
 		}
 		
 	}
@@ -56,8 +59,19 @@ public partial class Ouro : CharacterBody2D
 			velocity.Y += gravity * (float)delta;
 
 		// Handle Jump.
-		if (Input.IsActionJustPressed("ui_accept") && (IsOnFloor() || grapple))
+		if (Input.IsActionJustPressed("ui_accept") && ((IsOnFloor() || grapple) || has_double_jump))
+		{
 			velocity.Y = JumpVelocity;
+			if (has_double_jump)
+			{
+				has_double_jump = false;
+				velocity.Y = JumpVelocity;	
+			}	
+		}
+		if(IsOnFloor())
+		{
+			has_double_jump = true;
+		}
 		
 
 		// Get the input direction and handle the movement/deceleration.
