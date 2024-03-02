@@ -13,11 +13,8 @@ public partial class BossTimer : CanvasLayer
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		//var global = (PlayerVariables) GetNode("/root/PlayerVariables");
 		var message = GetNode<Label>("TimeLeft");
 		message.Text = "Time left: " + _timer.TimeLeft;
 		message.Show();
-		//str($Timer.time_left)
-		
 	}
 }

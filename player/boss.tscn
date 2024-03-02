@@ -35,6 +35,38 @@ position = Vector2(1.5, 0)
 scale = Vector2(1145, 48)
 texture = SubResource("CanvasTexture_djcku")
 
+[node name="FloorLeft" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-27, 169)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_5txo0")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/FloorLeft"]
+visible = false
+position = Vector2(1.5, 0)
+scale = Vector2(1145, 48)
+texture = SubResource("CanvasTexture_djcku")
+
+[node name="FloorTop" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(574, -26)
+shape = SubResource("RectangleShape2D_5txo0")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/FloorTop"]
+visible = false
+position = Vector2(1.5, 0)
+scale = Vector2(1145, 48)
+texture = SubResource("CanvasTexture_djcku")
+
+[node name="FloorRight" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1174, 192)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_5txo0")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/FloorRight"]
+visible = false
+position = Vector2(1.5, 0)
+scale = Vector2(1145, 48)
+texture = SubResource("CanvasTexture_djcku")
+
 [node name="Countdown" type="Timer" parent="."]
 wait_time = 20.0
 autostart = true
@@ -43,5 +75,12 @@ autostart = true
 script = ExtResource("4_i8uvd")
 
 [node name="TimeLeft" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = -1
+anchor_left = 0.352
+anchor_top = 0.073
+anchor_right = 0.352
+anchor_bottom = 0.073
+offset_left = 0.495972
+offset_top = -0.304005
+offset_right = 315.496
+offset_bottom = 22.696
