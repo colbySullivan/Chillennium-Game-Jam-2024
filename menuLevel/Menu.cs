@@ -20,7 +20,7 @@ public partial class Menu : Control
 	private void _on_start_pressed()
 	{
 		// Changes the scene to the "level1.tscn" file
-		GetTree().ChangeSceneToFile("res://levels/level1.tscn");
+		GetTree().ChangeSceneToFile("res://level1/level1.tscn");
 	}
 
 	// Called when the "Quit" button is pressed

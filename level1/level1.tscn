@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://c3wur2putrrun"]
+[gd_scene load_steps=4 format=3 uid="uid://c3wur2putrrun"]
+
+[ext_resource type="PackedScene" uid="uid://cogywm1tc5fw1" path="res://player/ouro.tscn" id="1_0nmty"]
+[ext_resource type="Texture2D" uid="uid://ddtfh0jckj6xb" path="res://Scene_One_BackgroundFallen.png" id="1_t4cod"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7rya"]
+size = Vector2(593, 18)
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(532, 217)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(14, 57)
+scale = Vector2(0.32179, 0.366316)
+texture = ExtResource("1_t4cod")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-11.5, 182)
+shape = SubResource("RectangleShape2D_m7rya")
+
+[node name="Ouro" parent="." instance=ExtResource("1_0nmty")]
+position = Vector2(-31, -27)
