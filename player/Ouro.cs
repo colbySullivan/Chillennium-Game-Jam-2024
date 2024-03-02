@@ -45,6 +45,8 @@ public partial class Ouro : CharacterBody2D
 		//ToLocal(_ray.GetCollisionPoint());
 		if (_ray.IsColliding())
 			_on_ray_cast_2d_draw();
+		else
+			grapple = false;
 		//DrawLine(Position, new Vector2(10,10), new Color(1, 0, 0), 1);
 		//_ray.DrawLine(Vector2.Zero, ToLocal(_ray.GetCollisionPoint()), new Color(1, 1, 0), 1);
 		Vector2 velocity = Velocity;

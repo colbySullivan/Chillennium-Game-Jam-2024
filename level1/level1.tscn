@@ -47,6 +47,18 @@ position = Vector2(-4.14848e-05, 1.90735e-06)
 scale = Vector2(208, 27)
 texture = SubResource("CanvasTexture_64b7n")
 
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-320, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_pdv1n")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3/CollisionShape2D"]
+position = Vector2(-4.14848e-05, 1.90735e-06)
+scale = Vector2(208, 27)
+texture = SubResource("CanvasTexture_64b7n")
+
 [node name="Soul" parent="." instance=ExtResource("3_ljyyi")]
 position = Vector2(135, 143)
 
