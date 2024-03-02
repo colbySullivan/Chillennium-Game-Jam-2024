@@ -3,7 +3,7 @@ using System;
 
 public partial class Scorpion : CharacterBody2D
 {
-	public const float Speed = 5.0f;
+	public const float Speed = 2.0f;
 	private AnimatedSprite2D _animatedSprite;
 	
 	public CharacterBody2D _Ouro;
@@ -28,39 +28,22 @@ public partial class Scorpion : CharacterBody2D
 			_animatedSprite.FlipH = false;
 		else
 			_animatedSprite.FlipH = true;
-		//Position += (delayedPos - Position) / 40;
+		Position += (delayedPos - Position) / 40;
 		Vector2 velocity = Velocity;
 
 		// Add the gravity.
 		if (!IsOnFloor())
 			velocity.Y += gravity * (float)delta;
-
-		// Handle Jump.
-		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
-			velocity.Y = JumpVelocity;
-
-		// Get the input direction and handle the movement/deceleration.
-		// As good practice, you should replace UI actions with custom gameplay actions.
-		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		if (direction != Vector2.Zero)
-		{
-			velocity.X = direction.X * Speed;
-		}
-		else
-		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-		}
-
 		Velocity = velocity;
 		MoveAndSlide();
 	}
 
-	private void _on_area_2d_body_entered(Node2D body)
+	private void _on_attack_area_body_entered(Node2D body)
 	{
 		if(body.Name == "Ouro")
 			GetTree().ChangeSceneToFile("res://menuLevel/menu.tscn");
 	}
-	private void _on_timer_timeout()
+	private void _on_attack_timer_timeout()
 	{
 		delayedPos = _Ouro.Position;
 	}

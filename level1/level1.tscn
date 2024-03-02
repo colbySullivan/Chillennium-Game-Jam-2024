@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3wur2putrrun"]
+[gd_scene load_steps=10 format=3 uid="uid://c3wur2putrrun"]
 
 [ext_resource type="PackedScene" uid="uid://cogywm1tc5fw1" path="res://player/ouro.tscn" id="1_0nmty"]
 [ext_resource type="Script" path="res://level1/level1.cs" id="1_bfcc0"]
 [ext_resource type="Texture2D" uid="uid://ddtfh0jckj6xb" path="res://Art/Scene_One_BackgroundFallen.png" id="1_oldgi"]
 [ext_resource type="PackedScene" uid="uid://b8e0mnw058n5t" path="res://player/soul.tscn" id="3_ljyyi"]
 [ext_resource type="PackedScene" uid="uid://cmwg7pwe300yl" path="res://player/bat.tscn" id="4_sjfkw"]
+[ext_resource type="PackedScene" uid="uid://bcc8prk3rpbl5" path="res://player/scorpion.tscn" id="6_qdj7u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7rya"]
 size = Vector2(3093.5, 44.5)
@@ -41,6 +42,7 @@ position = Vector2(475, 100)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(6, 2)
 shape = SubResource("RectangleShape2D_pdv1n")
+one_way_collision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2/CollisionShape2D"]
 position = Vector2(-4.14848e-05, 1.90735e-06)
@@ -73,6 +75,9 @@ autostart = true
 [node name="DespawnTimer" type="Timer" parent="."]
 wait_time = 20.444
 autostart = true
+
+[node name="Scorpion" parent="." instance=ExtResource("6_qdj7u")]
+position = Vector2(508, 62)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

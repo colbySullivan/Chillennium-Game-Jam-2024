@@ -34,15 +34,15 @@ position = Vector2(1, 4)
 scale = Vector2(0.2, 0.214286)
 sprite_frames = SubResource("SpriteFrames_bygbc")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="AttackArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(1.5, 5.75)
 shape = SubResource("RectangleShape2D_qmt6f")
 
-[node name="Area2D2" type="Area2D" parent="."]
+[node name="StompArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompArea"]
 position = Vector2(2, 1.5)
 shape = SubResource("RectangleShape2D_er38c")
 
@@ -50,6 +50,6 @@ shape = SubResource("RectangleShape2D_er38c")
 wait_time = 1.001
 autostart = true
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Area2D2" to="." method="_stomp"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="StompArea" to="." method="_stomp"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_timer_timeout"]
