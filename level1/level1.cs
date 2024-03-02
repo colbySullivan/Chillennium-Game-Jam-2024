@@ -32,4 +32,11 @@ public partial class level1 : Node2D
 		////instance.Positon.X = _Ouro.Position.X + 10;
 		//AddChild(instance);
 	}
+	private void _on_portal_body_entered(Node2D body)
+	{
+		if(body.Name == "Ouro")
+		{
+			GetTree().ChangeSceneToFile("res://player/level_2.tscn");
+		}
+	}
 }
