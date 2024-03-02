@@ -42,7 +42,8 @@ script = ExtResource("1_rxl6w")
 position = Vector2(581.5, 322)
 scale = Vector2(0.597396, 0.603704)
 sprite_frames = SubResource("SpriteFrames_k40il")
-frame_progress = 0.414333
+frame = 3
+frame_progress = 0.0763553
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0

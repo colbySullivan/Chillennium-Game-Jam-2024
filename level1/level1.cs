@@ -17,18 +17,13 @@ public partial class level1 : Node2D
 		
 	}
 	
-	private void _on_despawn_timer_timeout()
-	{
-		// TODO This breaks the game
-		//QueueFree();
-	}
-	
 	private void _on_spawn_timer_timeout()
 	{
 		// Bat
 		var scene = GD.Load<PackedScene>("res://player/bat.tscn");
 		var instance = scene.Instantiate();
-		//instance.Positon.X = _Ouro.Position.X + 10;
+		
+		//instance.Position = _Ouro.Position;
 		AddChild(instance);
 		
 		// Scoprion

@@ -19,6 +19,8 @@ public partial class Bat : CharacterBody2D
 		_animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		_Ouro = GetParent().GetNode<CharacterBody2D>("Ouro");
 		base._Ready();
+		var random = new RandomNumberGenerator();
+		Position = _Ouro.Position + new Vector2(random.RandiRange(100, 500),random.RandiRange(100, 500));
 	}
 	
 	

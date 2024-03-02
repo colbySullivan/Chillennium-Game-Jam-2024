@@ -188,10 +188,6 @@ position = Vector2(-30, 155)
 wait_time = 5.997
 autostart = true
 
-[node name="DespawnTimer" type="Timer" parent="."]
-wait_time = 20.444
-autostart = true
-
 [node name="Scorpion" parent="." instance=ExtResource("6_qdj7u")]
 position = Vector2(508, 62)
 
@@ -200,4 +196,3 @@ stream = ExtResource("8_uyv2j")
 autoplay = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
-[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
