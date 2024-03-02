@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3wur2putrrun"]
+[gd_scene load_steps=11 format=3 uid="uid://c3wur2putrrun"]
 
 [ext_resource type="PackedScene" uid="uid://cogywm1tc5fw1" path="res://player/ouro.tscn" id="1_0nmty"]
 [ext_resource type="Script" path="res://level1/level1.cs" id="1_bfcc0"]
 [ext_resource type="Texture2D" uid="uid://ddtfh0jckj6xb" path="res://Art/Scene_One_BackgroundFallen.png" id="1_oldgi"]
 [ext_resource type="PackedScene" uid="uid://b8e0mnw058n5t" path="res://player/soul.tscn" id="3_ljyyi"]
+[ext_resource type="Script" path="res://level1/CanvasLayer.cs" id="4_n7jsb"]
 [ext_resource type="PackedScene" uid="uid://cmwg7pwe300yl" path="res://player/bat.tscn" id="4_sjfkw"]
 [ext_resource type="PackedScene" uid="uid://bcc8prk3rpbl5" path="res://player/scorpion.tscn" id="6_qdj7u"]
 
@@ -29,6 +30,14 @@ position = Vector2(-210, 115)
 
 [node name="Camera2D" type="Camera2D" parent="Ouro"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Ouro/Camera2D"]
+script = ExtResource("4_n7jsb")
+
+[node name="Soul count" type="Label" parent="Ouro/Camera2D/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Test"
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(542, 188)
 
@@ -49,15 +58,12 @@ position = Vector2(-4.14848e-05, 1.90735e-06)
 scale = Vector2(208, 27)
 texture = SubResource("CanvasTexture_64b7n")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(-320, -32)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(2, 1)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-793, -131)
 shape = SubResource("RectangleShape2D_pdv1n")
 one_way_collision = true
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3/CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2/CollisionShape2D2"]
 position = Vector2(-4.14848e-05, 1.90735e-06)
 scale = Vector2(208, 27)
 texture = SubResource("CanvasTexture_64b7n")
