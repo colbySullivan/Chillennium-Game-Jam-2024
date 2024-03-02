@@ -28,7 +28,7 @@ public partial class soul : StaticBody2D
 			Godot.GD.Print("Player currently has " + global.GetSouls() + " souls");
 			global.AddSoul();
 			Godot.GD.Print("Player has collected " + global.GetSouls() + " souls");
-			QueueFree();	
+			QueueFree();
 		}
 	}
 }

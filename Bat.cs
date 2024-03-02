@@ -15,24 +15,21 @@ public partial class Bat : CharacterBody2D
 
 
 	public override void _Ready()
-		{
-			
-			_animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-			_Ouro = GetParent().GetNode<CharacterBody2D>("Ouro");
-			base._Ready();
-		}
+	{	
+		_animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		_Ouro = GetParent().GetNode<CharacterBody2D>("Ouro");
+		base._Ready();
+	}
+	
+	
 	public override void _PhysicsProcess(double delta)
 	{
 		_animatedSprite.Play("default");
-		//Vector2 velocity = Velocity;
-		//velocity.X -=  Speed;
-		//Velocity = velocity;
 		if(Position.X > delayedPos.X)
 			_animatedSprite.FlipH = false;
 		else
 			_animatedSprite.FlipH = true;
 		Position += (delayedPos - Position) / 40;
-		//MoveAndSlide();
 	}
 	private void _on_area_2d_body_entered(Node2D body)
 	{
@@ -42,5 +39,10 @@ public partial class Bat : CharacterBody2D
 	private void _on_timer_timeout()
 	{
 		delayedPos = _Ouro.Position;
+	}
+	private void _stomp(Node2D body)
+	{
+		if(body.Name == "Ouro")
+			QueueFree();
 	}
 }

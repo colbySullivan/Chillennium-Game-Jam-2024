@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmwg7pwe300yl"]
+[gd_scene load_steps=7 format=3 uid="uid://cmwg7pwe300yl"]
 
 [ext_resource type="Script" path="res://Bat.cs" id="1_h56q1"]
 [ext_resource type="Texture2D" uid="uid://5tomik1yu6x" path="res://Art/bat demo.png" id="2_1ir71"]
@@ -20,6 +20,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmt6f"]
 size = Vector2(59, 18.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_er38c"]
+size = Vector2(52, 17)
+
 [node name="Bat" type="CharacterBody2D"]
 script = ExtResource("1_h56q1")
 
@@ -37,9 +40,16 @@ sprite_frames = SubResource("SpriteFrames_bygbc")
 position = Vector2(1.5, 5.75)
 shape = SubResource("RectangleShape2D_qmt6f")
 
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(2, 1.5)
+shape = SubResource("RectangleShape2D_er38c")
+
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 1.001
 autostart = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_stomp"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_timer_timeout"]

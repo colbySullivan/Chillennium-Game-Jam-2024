@@ -11,18 +11,29 @@ public partial class Ouro : CharacterBody2D
 	
 	private AnimatedSprite2D _animatedSprite;
 	
+	private RayCast2D _ray;
+	
 	private String _sceneName;
 
 	public override void _Ready()
 	{
 		// Access to animation globally
 		_animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		_ray = GetNode<RayCast2D>("RayCast2D");
 		_sceneName = GetTree().CurrentScene.Name;
 	}
 	
 	public override void _PhysicsProcess(double delta)
 	{
 		_animatedSprite.Play("idle");
+		
+		//`draw_line(RaycastWeapon.position, RaycastWeapon.get_collision_point(), Color(1, 0, 0), 1)`
+//
+		//`draw_circle(RaycastWeapon.get_collision_point(), 5, Color(1,0,0))`
+		//ToLocal(_ray.GetCollisionPoint());
+		//if (_ray.IsColliding())
+		//DrawLine(Position, new Vector2(10,10), new Color(1, 0, 0), 1);
+		//_ray.DrawLine(Vector2.Zero, ToLocal(_ray.GetCollisionPoint()), new Color(1, 1, 0), 1);
 		Vector2 velocity = Velocity;
 
 		// Add the gravity.
@@ -48,4 +59,11 @@ public partial class Ouro : CharacterBody2D
 		Velocity = velocity;
 		MoveAndSlide();
 	}
+	private void _on_ray_cast_2d_draw()
+	{
+		DrawLine(Vector2.Zero, new Vector2(10,10), new Color(1, 1, 0), 1);
+	}
 }
+
+
+
