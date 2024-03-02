@@ -1,71 +1,48 @@
-[gd_scene load_steps=7 format=3 uid="uid://iw25bp1vvlpl"]
+[gd_scene load_steps=8 format=3 uid="uid://iw25bp1vvlpl"]
 
 [ext_resource type="Texture2D" uid="uid://gdnfu0nh5a78" path="res://Art/BASE LAYER.png" id="1_rvnts"]
 [ext_resource type="PackedScene" uid="uid://br1hvaxf2tn4r" path="res://player/bossPlayer.tscn" id="3_8ys6q"]
 [ext_resource type="PackedScene" uid="uid://cogywm1tc5fw1" path="res://player/ouro.tscn" id="3_e7vvy"]
 [ext_resource type="Script" path="res://player/BossTimer.cs" id="4_i8uvd"]
+[ext_resource type="PackedScene" uid="uid://cmwg7pwe300yl" path="res://player/bat.tscn" id="5_6plnh"]
+[ext_resource type="Script" path="res://player/batFinal.cs" id="6_l8xws"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5txo0"]
-size = Vector2(1146, 48)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_djcku"]
+size = Vector2(1800, 49)
 
 [node name="BossLevel" type="Node2D"]
+scale = Vector2(0.75, 0.75)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(579.5, 328.5)
-scale = Vector2(1.25543, 1.18704)
+position = Vector2(765.75, 471.333)
+scale = Vector2(1.66576, 1.74568)
 texture = ExtResource("1_rvnts")
 
 [node name="Ouro" parent="." instance=ExtResource("3_e7vvy")]
 position = Vector2(229, 491)
 
 [node name="Boss" parent="." instance=ExtResource("3_8ys6q")]
-position = Vector2(571, 168)
+position = Vector2(1181.33, 502.667)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="FloorFolder" type="StaticBody2D" parent="."]
 
-[node name="Floor" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(574, 549)
+[node name="Floor" type="CollisionShape2D" parent="FloorFolder"]
+position = Vector2(764, 763)
 shape = SubResource("RectangleShape2D_5txo0")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/Floor"]
-visible = false
-position = Vector2(1.5, 0)
-scale = Vector2(1145, 48)
-texture = SubResource("CanvasTexture_djcku")
-
-[node name="FloorLeft" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-27, 169)
+[node name="FloorLeft" type="CollisionShape2D" parent="FloorFolder"]
+position = Vector2(-25.5, 283)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_5txo0")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/FloorLeft"]
-visible = false
-position = Vector2(1.5, 0)
-scale = Vector2(1145, 48)
-texture = SubResource("CanvasTexture_djcku")
-
-[node name="FloorTop" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(574, -26)
+[node name="FloorTop" type="CollisionShape2D" parent="FloorFolder"]
+position = Vector2(665, -26)
 shape = SubResource("RectangleShape2D_5txo0")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/FloorTop"]
-visible = false
-position = Vector2(1.5, 0)
-scale = Vector2(1145, 48)
-texture = SubResource("CanvasTexture_djcku")
-
-[node name="FloorRight" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1174, 192)
+[node name="FloorRight" type="CollisionShape2D" parent="FloorFolder"]
+position = Vector2(1557.33, 284)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_5txo0")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/FloorRight"]
-visible = false
-position = Vector2(1.5, 0)
-scale = Vector2(1145, 48)
-texture = SubResource("CanvasTexture_djcku")
 
 [node name="Countdown" type="Timer" parent="."]
 wait_time = 20.0
@@ -84,3 +61,21 @@ offset_left = 0.495972
 offset_top = -0.304005
 offset_right = 315.496
 offset_bottom = 22.696
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Bat" parent="." instance=ExtResource("5_6plnh")]
+position = Vector2(928, 233.333)
+script = ExtResource("6_l8xws")
+
+[node name="Bat2" parent="." instance=ExtResource("5_6plnh")]
+position = Vector2(440, 264)
+script = ExtResource("6_l8xws")
+
+[node name="Bat3" parent="." instance=ExtResource("5_6plnh")]
+position = Vector2(1073.33, 346.667)
+script = ExtResource("6_l8xws")
+
+[connection signal="timeout" from="Timer" to="Bat" method="_on_timer_timeout"]

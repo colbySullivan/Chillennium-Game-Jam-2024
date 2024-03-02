@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3wur2putrrun"]
+[gd_scene load_steps=13 format=3 uid="uid://c3wur2putrrun"]
 
 [ext_resource type="PackedScene" uid="uid://cogywm1tc5fw1" path="res://player/ouro.tscn" id="1_0nmty"]
 [ext_resource type="Script" path="res://level1/level1.cs" id="1_bfcc0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b8e0mnw058n5t" path="res://player/soul.tscn" id="3_ljyyi"]
 [ext_resource type="Script" path="res://level1/CanvasLayer.cs" id="4_n7jsb"]
 [ext_resource type="PackedScene" uid="uid://cmwg7pwe300yl" path="res://player/bat.tscn" id="4_sjfkw"]
+[ext_resource type="Texture2D" uid="uid://dfi7ix0tyigwg" path="res://Art/platforms/Level 1 platformer.png" id="5_xt8d7"]
 [ext_resource type="PackedScene" uid="uid://bcc8prk3rpbl5" path="res://player/scorpion.tscn" id="6_qdj7u"]
 [ext_resource type="AudioStream" uid="uid://c6lxdfgn7c267" path="res://Art/Fallen_Stage_One.mp3" id="8_uyv2j"]
 
@@ -13,7 +14,7 @@
 size = Vector2(3093.5, 44.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdv1n"]
-size = Vector2(207, 27)
+size = Vector2(190.5, 27)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_64b7n"]
 
@@ -57,14 +58,14 @@ shape = SubResource("RectangleShape2D_m7rya")
 position = Vector2(475, 100)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms"]
-position = Vector2(6, 2)
+position = Vector2(-2.25, 2)
 shape = SubResource("RectangleShape2D_pdv1n")
 one_way_collision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Platforms/CollisionShape2D"]
-position = Vector2(-4.14848e-05, 1.90735e-06)
-scale = Vector2(208, 27)
-texture = SubResource("CanvasTexture_64b7n")
+position = Vector2(0.250008, -2.99999)
+scale = Vector2(0.586719, 0.511161)
+texture = ExtResource("5_xt8d7")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Platforms"]
 position = Vector2(-793, -131)
