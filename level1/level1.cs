@@ -19,7 +19,8 @@ public partial class level1 : Node2D
 	
 	private void _on_despawn_timer_timeout()
 	{
-		QueueFree();
+		// TODO This breaks the game
+		//QueueFree();
 	}
 	
 	private void _on_spawn_timer_timeout()
