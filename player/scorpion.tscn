@@ -15,7 +15,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gl7ix"]
@@ -34,8 +34,7 @@ script = ExtResource("1_7cnct")
 position = Vector2(-3, -23.5)
 scale = Vector2(0.31875, 0.270833)
 sprite_frames = SubResource("SpriteFrames_31sd7")
-frame = 1
-frame_progress = 0.203492
+frame_progress = 0.65856
 
 [node name="AttackArea" type="Area2D" parent="."]
 

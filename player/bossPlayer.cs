@@ -35,7 +35,7 @@ public partial class bossPlayer : CharacterBody2D
 		// Skuffed state machine
 		if(_timer.TimeLeft > 70)
 		{
-			_animatedSprite.Play("default");
+			_animatedSprite.Play("bobbing");
 			if(Position.X > delayedPos.X)
 				_animatedSprite.FlipH = true;
 			else
@@ -52,7 +52,7 @@ public partial class bossPlayer : CharacterBody2D
 		}
 		else
 		{
-			_animatedSprite.Play("default");
+			_animatedSprite.Play("flying");
 			if(Position.X > delayedPos.X)
 				_animatedSprite.FlipH = true;
 			else
