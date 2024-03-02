@@ -22,6 +22,7 @@ position = Vector2(532, 217)
 script = ExtResource("1_bfcc0")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.5, 0.5)
@@ -178,9 +179,6 @@ position = Vector2(-4.14848e-05, 1.90735e-06)
 scale = Vector2(208, 27)
 texture = SubResource("CanvasTexture_64b7n")
 
-[node name="Soul" parent="." instance=ExtResource("3_ljyyi")]
-position = Vector2(135, 143)
-
 [node name="Bat" parent="." instance=ExtResource("4_sjfkw")]
 position = Vector2(-30, 155)
 
@@ -194,5 +192,10 @@ position = Vector2(508, 62)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_uyv2j")
 autoplay = true
+
+[node name="Souls" type="Node" parent="."]
+
+[node name="Soul" parent="Souls" instance=ExtResource("3_ljyyi")]
+position = Vector2(667, 360)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

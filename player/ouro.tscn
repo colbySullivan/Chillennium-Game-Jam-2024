@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cogywm1tc5fw1"]
+[gd_scene load_steps=7 format=3 uid="uid://cogywm1tc5fw1"]
 
 [ext_resource type="Script" path="res://player/Ouro.cs" id="1_77fd3"]
 [ext_resource type="Texture2D" uid="uid://cua78h6fy1o1g" path="res://Art/Ouro_Character.png" id="2_loirj"]
+[ext_resource type="Script" path="res://player/CollisionShape2D.cs" id="3_0d6g1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uywoc"]
 size = Vector2(28.5, 47)
@@ -16,6 +17,9 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjlf4"]
+size = Vector2(76, 26)
 
 [node name="Ouro" type="CharacterBody2D"]
 slide_on_ceiling = false
@@ -32,5 +36,13 @@ animation = &"idle"
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, -300)
+
+[node name="SwordArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordArea"]
+position = Vector2(54, -3)
+shape = SubResource("RectangleShape2D_hjlf4")
+disabled = true
+script = ExtResource("3_0d6g1")
 
 [connection signal="draw" from="RayCast2D" to="." method="_on_ray_cast_2d_draw"]

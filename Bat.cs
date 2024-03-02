@@ -51,4 +51,9 @@ public partial class Bat : CharacterBody2D
 		if(body.Name == "Ouro")
 			QueueFree();
 	}
+	private void _attacked(Rid area_rid, Area2D area, long area_shape_index, long local_shape_index)
+	{
+		if(area.Name == "SwordArea")
+			QueueFree();
+	}
 }

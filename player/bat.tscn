@@ -59,5 +59,6 @@ wait_time = 1.001
 autostart = true
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_shape_entered" from="StompArea" to="." method="_attacked"]
 [connection signal="body_entered" from="StompArea" to="." method="_stomp"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_timer_timeout"]

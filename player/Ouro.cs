@@ -19,6 +19,10 @@ public partial class Ouro : CharacterBody2D
 	
 	public bool has_double_jump = true;
 
+	public bool facing_left;
+	
+	public Vector2 direction;
+
 	public override void _Ready()
 	{
 		// Access to animation globally
@@ -85,10 +89,41 @@ public partial class Ouro : CharacterBody2D
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 		}
+		
+		if (direction.X > 0)
+		{
+			facing_left = false;
+			_animatedSprite.FlipH = false;
+		}
+			
+		else if (direction.X < 0)
+		{
+			facing_left = true;
+			_animatedSprite.FlipH = true;
+		}
 
 		Velocity = velocity;
 		MoveAndSlide();
+		swing_sword();
 	}
+	
+	public void swing_sword()
+	{
+		var node = GetNode<CollisionShape2D>("SwordArea/CollisionShape2D");
+		// Sword starts to the right
+		node.Position = node.right;
+		if (Input.IsActionJustPressed("fight"))
+		{
+			//_animatedSprite.Play("fight");
+			if(facing_left)
+				node.Position = node.left;
+			// Renable sword area hitbox
+			node.Disabled = false;
+		}
+		else
+			node.Disabled = true;
+	}
+	
 	private void _on_ray_cast_2d_draw()
 	{
 		grapple = true;
