@@ -28,12 +28,12 @@ public partial class Scorpion : CharacterBody2D
 			_animatedSprite.FlipH = false;
 		else
 			_animatedSprite.FlipH = true;
-		Position += (delayedPos - Position) / 40;
+		Velocity += (delayedPos - Position) / 100;
 		Vector2 velocity = Velocity;
 
 		// Add the gravity.
 		if (!IsOnFloor())
-			velocity.Y += gravity * (float)delta;
+			velocity.Y += gravity * (float)delta * 2;
 		Velocity = velocity;
 		MoveAndSlide();
 	}
