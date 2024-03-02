@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://iw25bp1vvlpl"]
+[gd_scene load_steps=7 format=3 uid="uid://iw25bp1vvlpl"]
 
 [ext_resource type="Texture2D" uid="uid://gdnfu0nh5a78" path="res://Art/BASE LAYER.png" id="1_rvnts"]
 [ext_resource type="PackedScene" uid="uid://br1hvaxf2tn4r" path="res://player/bossPlayer.tscn" id="3_8ys6q"]
 [ext_resource type="PackedScene" uid="uid://cogywm1tc5fw1" path="res://player/ouro.tscn" id="3_e7vvy"]
+[ext_resource type="Script" path="res://player/BossTimer.cs" id="4_i8uvd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5txo0"]
 size = Vector2(1146, 48)
@@ -33,3 +34,14 @@ visible = false
 position = Vector2(1.5, 0)
 scale = Vector2(1145, 48)
 texture = SubResource("CanvasTexture_djcku")
+
+[node name="Countdown" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("4_i8uvd")
+
+[node name="TimeLeft" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0

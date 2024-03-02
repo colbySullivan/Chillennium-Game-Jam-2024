@@ -10,6 +10,8 @@ public partial class bossPlayer : CharacterBody2D
 	
 	public CharacterBody2D _Ouro;
 	
+	public int startState = 0;
+	
 	public Vector2 delayedPos;
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -27,20 +29,33 @@ public partial class bossPlayer : CharacterBody2D
 	
 	public override void _PhysicsProcess(double delta)
 	{
-		_animatedSprite.Play("default");
-		if(Position.X > delayedPos.X)
-			_animatedSprite.FlipH = false;
-		else
-			_animatedSprite.FlipH = true;
-		Velocity += (delayedPos - Position) / 100;
-		Vector2 velocity = Velocity;
-		// Add the gravity.
-		if (!IsOnFloor())
-			velocity.Y += gravity * (float)delta * 2;
-		else
-			velocity.Y = JumpVelocity;
-		Velocity = velocity;
-		MoveAndSlide();
+		// Skuffed state machine
+		if(startState < 3)
+		{
+			_animatedSprite.Play("default");
+			if(Position.X > delayedPos.X)
+				_animatedSprite.FlipH = false;
+			else
+				_animatedSprite.FlipH = true;
+			Velocity += (delayedPos - Position) / 100;
+			Vector2 velocity = Velocity;
+			// Add the gravity.
+			if (!IsOnFloor())
+				velocity.Y += gravity * (float)delta * 2;
+			else
+				velocity.Y = JumpVelocity;
+			Velocity = velocity;
+			MoveAndSlide();
+		}
+		if(startState >= 3)
+		{
+			_animatedSprite.Play("default");
+			if(Position.X > delayedPos.X)
+				_animatedSprite.FlipH = false;
+			else
+				_animatedSprite.FlipH = true;
+			Position += (delayedPos - Position) / 40;
+		}
 	}
 	
 	private void _on_area_2d_body_entered(Node2D body)
@@ -59,6 +74,7 @@ public partial class bossPlayer : CharacterBody2D
 	private void _on_hit_box_area_shape_entered(Rid area_rid, Area2D area, long area_shape_index, long local_shape_index)
 	{
 		if(area.Name == "SwordArea")
-			QueueFree();
+			startState++;
+			//QueueFree();
 	}
 }
