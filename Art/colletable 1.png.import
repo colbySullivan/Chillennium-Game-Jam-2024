@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddtfh0jckj6xb"
-path="res://.godot/imported/Scene_One_BackgroundFallen.png-031e05c6ad087621420d27915894586c.ctex"
+uid="uid://8cpfukyvsng3"
+path="res://.godot/imported/colletable 1.png-62fe3d9b90c06924e6726fdc1f9109e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scene_One_BackgroundFallen.png"
-dest_files=["res://.godot/imported/Scene_One_BackgroundFallen.png-031e05c6ad087621420d27915894586c.ctex"]
+source_file="res://Art/colletable 1.png"
+dest_files=["res://.godot/imported/colletable 1.png-62fe3d9b90c06924e6726fdc1f9109e9.ctex"]
 
 [params]
 

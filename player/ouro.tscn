@@ -1,16 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://cogywm1tc5fw1"]
 
 [ext_resource type="Script" path="res://player/Ouro.cs" id="1_77fd3"]
-[ext_resource type="Texture2D" uid="uid://dkb4rb07vkvnx" path="res://icon.svg" id="2_4rqqr"]
+[ext_resource type="Texture2D" uid="uid://cua78h6fy1o1g" path="res://Art/Ouro_Character.png" id="2_loirj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uywoc"]
-size = Vector2(150, 50)
+size = Vector2(28.5, 47)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5tbgb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_4rqqr")
+"texture": ExtResource("2_loirj")
 }],
 "loop": true,
 "name": &"idle",
@@ -22,13 +22,10 @@ slide_on_ceiling = false
 script = ExtResource("1_77fd3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 35)
+position = Vector2(1.75, -3.5)
 shape = SubResource("RectangleShape2D_uywoc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
+position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_5tbgb")
 animation = &"idle"
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_4rqqr")

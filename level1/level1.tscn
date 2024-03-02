@@ -1,24 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3wur2putrrun"]
+[gd_scene load_steps=7 format=3 uid="uid://c3wur2putrrun"]
 
 [ext_resource type="PackedScene" uid="uid://cogywm1tc5fw1" path="res://player/ouro.tscn" id="1_0nmty"]
-[ext_resource type="Texture2D" uid="uid://ddtfh0jckj6xb" path="res://Scene_One_BackgroundFallen.png" id="1_t4cod"]
+[ext_resource type="Texture2D" uid="uid://ddtfh0jckj6xb" path="res://Art/Scene_One_BackgroundFallen.png" id="1_oldgi"]
+[ext_resource type="PackedScene" uid="uid://b8e0mnw058n5t" path="res://player/soul.tscn" id="3_ljyyi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7rya"]
-size = Vector2(593, 18)
+size = Vector2(2187, 44.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdv1n"]
+size = Vector2(207, 27)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_64b7n"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(532, 217)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(14, 57)
-scale = Vector2(0.32179, 0.366316)
-texture = ExtResource("1_t4cod")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-11.5, 182)
-shape = SubResource("RectangleShape2D_m7rya")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(561.434, 57)
+scale = Vector2(0.634609, 0.366316)
+texture = ExtResource("1_oldgi")
 
 [node name="Ouro" parent="." instance=ExtResource("1_0nmty")]
-position = Vector2(-31, -27)
+position = Vector2(-384, -148)
+
+[node name="Camera2D" type="Camera2D" parent="Ouro"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(542, 188)
+
+[node name="Floor" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(4, 22)
+shape = SubResource("RectangleShape2D_m7rya")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(475, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(2, -1.5)
+shape = SubResource("RectangleShape2D_pdv1n")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2/CollisionShape2D"]
+position = Vector2(-4.14848e-05, 1.90735e-06)
+scale = Vector2(208, 27)
+texture = SubResource("CanvasTexture_64b7n")
+
+[node name="Soul" parent="." instance=ExtResource("3_ljyyi")]
+position = Vector2(135, 143)
