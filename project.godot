@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="Chillennium Game Jam 2024"
-config/features=PackedStringArray("4.2", "Forward Plus")
+run/main_scene="res://menuLevel/menu.tscn"
+config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -25,3 +26,7 @@ project/assembly_name="Chillennium Game Jam 2024"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://mainDialogue.dialogue")
