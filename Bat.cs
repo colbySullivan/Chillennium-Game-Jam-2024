@@ -34,7 +34,11 @@ public partial class Bat : CharacterBody2D
 	private void _on_area_2d_body_entered(Node2D body)
 	{
 		if(body.Name == "Ouro")
+		{
+			var global = (PlayerVariables) GetNode("/root/PlayerVariables");
+			global.ResetSouls();
 			GetTree().ChangeSceneToFile("res://menuLevel/menu.tscn");
+		}
 	}
 	private void _on_timer_timeout()
 	{
