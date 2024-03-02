@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmsjvtj3jig5u"
+path="res://.godot/imported/Macaw Screech.mp3-239812a1f3a0a88f18db5f6991e2f9c5.mp3str"
+
+[deps]
+
+source_file="res://sound/Macaw Screech.mp3"
+dest_files=["res://.godot/imported/Macaw Screech.mp3-239812a1f3a0a88f18db5f6991e2f9c5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

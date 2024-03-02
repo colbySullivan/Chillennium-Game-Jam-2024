@@ -16,6 +16,8 @@ public partial class soul : StaticBody2D
 	public override void _Process(double delta)
 	{
 		_animatedSprite.Play("default");
+		var sound = GetNode<AudioStreamPlayer>("Soul");
+		sound.Play();
 		
 		
 	}
@@ -25,9 +27,9 @@ public partial class soul : StaticBody2D
 		if(body.Name == "Ouro")
 		{
 			var global = (PlayerVariables) GetNode("/root/PlayerVariables");
-			Godot.GD.Print("Player currently has " + global.GetSouls() + " souls");
+			//Godot.GD.Print("Player currently has " + global.GetSouls() + " souls");
 			global.AddSoul();
-			Godot.GD.Print("Player has collected " + global.GetSouls() + " souls");
+			//Godot.GD.Print("Player has collected " + global.GetSouls() + " souls");
 			QueueFree();
 		}
 	}
