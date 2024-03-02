@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmwg7pwe300yl"]
+[gd_scene load_steps=9 format=3 uid="uid://cmwg7pwe300yl"]
 
 [ext_resource type="Script" path="res://Bat.cs" id="1_h56q1"]
-[ext_resource type="Texture2D" uid="uid://5tomik1yu6x" path="res://Art/bat demo.png" id="2_1ir71"]
+[ext_resource type="Texture2D" uid="uid://cicukk10yfewc" path="res://Art/bat flap 1.png" id="2_o86vs"]
+[ext_resource type="Texture2D" uid="uid://cbu5nhju4odj3" path="res://Art/bat flap 2.png" id="3_n51i1"]
+[ext_resource type="Texture2D" uid="uid://b5x7klhk30won" path="res://Art/bat flap 3.png" id="4_81fx3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whbmm"]
 size = Vector2(14.25, 5.375)
@@ -10,7 +12,13 @@ size = Vector2(14.25, 5.375)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_1ir71")
+"texture": ExtResource("2_o86vs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n51i1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_81fx3")
 }],
 "loop": true,
 "name": &"default",
