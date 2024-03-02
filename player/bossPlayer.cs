@@ -4,6 +4,8 @@ using System;
 public partial class bossPlayer : CharacterBody2D
 {
 	public const float Speed = 5.0f;
+	public const float JumpVelocity = -400.0f;
+	
 	private AnimatedSprite2D _animatedSprite;
 	
 	public CharacterBody2D _Ouro;
@@ -20,7 +22,6 @@ public partial class bossPlayer : CharacterBody2D
 		_Ouro = GetParent().GetNode<CharacterBody2D>("Ouro");
 		base._Ready();
 		var random = new RandomNumberGenerator();
-		Position = _Ouro.Position + new Vector2(random.RandiRange(100, 500),random.RandiRange(100, 500));
 	}
 	
 	
@@ -31,8 +32,17 @@ public partial class bossPlayer : CharacterBody2D
 			_animatedSprite.FlipH = false;
 		else
 			_animatedSprite.FlipH = true;
-		Position += (delayedPos - Position) / 40;
+		Velocity += (delayedPos - Position) / 100;
+		Vector2 velocity = Velocity;
+		// Add the gravity.
+		if (!IsOnFloor())
+			velocity.Y += gravity * (float)delta * 2;
+		else
+			velocity.Y = JumpVelocity;
+		Velocity = velocity;
+		MoveAndSlide();
 	}
+	
 	private void _on_area_2d_body_entered(Node2D body)
 	{
 		if(body.Name == "Ouro")
@@ -46,12 +56,7 @@ public partial class bossPlayer : CharacterBody2D
 	{
 		delayedPos = _Ouro.Position;
 	}
-	private void _stomp(Node2D body)
-	{
-		if(body.Name == "Ouro")
-			QueueFree();
-	}
-	private void _attacked(Rid area_rid, Area2D area, long area_shape_index, long local_shape_index)
+	private void _on_hit_box_area_shape_entered(Rid area_rid, Area2D area, long area_shape_index, long local_shape_index)
 	{
 		if(area.Name == "SwordArea")
 			QueueFree();
