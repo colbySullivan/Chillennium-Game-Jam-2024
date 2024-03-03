@@ -16,4 +16,8 @@ public partial class end_credit : Node2D
 	{
 		GetTree().ChangeSceneToFile("res://menuLevel/menu.tscn");
 	}
+	private void _on_video_stream_player_finished()
+	{
+		GetTree().ChangeSceneToFile("res://menuLevel/menu.tscn");
+	}
 }

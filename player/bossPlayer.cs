@@ -34,11 +34,11 @@ public partial class bossPlayer : CharacterBody2D
 	public override void _PhysicsProcess(double delta)
 	{
 		// Skuffed state machine
-		if(_timer.TimeLeft > 80)
+		if(_timer.TimeLeft > 63)
 			_animatedSprite.Play("bobbing");
 		else
 		{
-			if(_timer.TimeLeft > 70)
+			if(_timer.TimeLeft > 26)
 			{
 				_animatedSprite.Play("bobbing");
 				if(Position.X > delayedPos.X)

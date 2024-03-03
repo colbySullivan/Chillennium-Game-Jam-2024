@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c6l7djm834k1y" path="res://Art/Squirrel/RED S 1.png" id="2_mviob"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfoed"]
-size = Vector2(42, 41)
+size = Vector2(42, 49)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8garr"]
 animations = [{
@@ -22,21 +22,21 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ehag"]
-size = Vector2(39, 33.5)
+size = Vector2(61, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jibqp"]
-size = Vector2(47, 35.5)
+size = Vector2(63, 44)
 
 [node name="Squirrel" type="CharacterBody2D"]
 script = ExtResource("1_2sk27")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, -4.5)
+position = Vector2(3, -0.5)
 shape = SubResource("RectangleShape2D_cfoed")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(3.5, -9.75)
-scale = Vector2(0.209821, 0.182812)
+position = Vector2(3, -10)
+scale = Vector2(0.3125, 0.264062)
 sprite_frames = SubResource("SpriteFrames_8garr")
 frame_progress = 0.0979605
 flip_h = true
@@ -45,14 +45,14 @@ flip_h = true
 position = Vector2(3, -9.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StompArea"]
-position = Vector2(-0.5, -6.75)
+position = Vector2(-0.5, -13.5)
 shape = SubResource("RectangleShape2D_3ehag")
 
 [node name="AttackArea" type="Area2D" parent="."]
 position = Vector2(3, -9.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(-0.5, 7.75)
+position = Vector2(-0.5, 12.5)
 shape = SubResource("RectangleShape2D_jibqp")
 
 [connection signal="body_entered" from="StompArea" to="." method="_on_hit_box_body_entered"]

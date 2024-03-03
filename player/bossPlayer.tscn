@@ -52,7 +52,7 @@ position = Vector2(-4, 0.999998)
 scale = Vector2(0.308333, 0.258333)
 sprite_frames = SubResource("SpriteFrames_al784")
 animation = &"bobbing"
-frame_progress = 0.179126
+frame_progress = 0.679611
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-7, 75)

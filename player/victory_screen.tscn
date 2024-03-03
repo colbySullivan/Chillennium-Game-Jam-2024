@@ -117,7 +117,7 @@ script = ExtResource("1_k8xdw")
 position = Vector2(583, 323.5)
 scale = Vector2(1.25435, 1.19074)
 sprite_frames = SubResource("SpriteFrames_p1yih")
-frame_progress = 0.34263
+frame_progress = 0.748096
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_mtgvo")

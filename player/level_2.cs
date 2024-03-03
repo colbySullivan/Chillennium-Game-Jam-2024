@@ -18,5 +18,12 @@ public partial class level_2 : Node2D
 		{
 			GetTree().ChangeSceneToFile("res://player/final_cutscene.tscn");
 		}
+	}
+	private void _on_fall_area_entered(Area2D area)
+	{
+		if(area.Name == "Hitbox")
+			{
+				GetTree().ChangeSceneToFile("res://player/death_scene.tscn");
+			}
 	}	
 }

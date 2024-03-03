@@ -158,7 +158,6 @@ public partial class Ouro : CharacterBody2D
 	}
 	private void _on_stomp_area_entered(Area2D area)
 	{
-		GD.Print(area.Name);
 		if(area.Name == "StompArea")
 			_smoke.Visible = true;
 	}
