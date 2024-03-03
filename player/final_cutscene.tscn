@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://81veqqrbscic"]
+[gd_scene load_steps=5 format=3 uid="uid://81veqqrbscic"]
 
 [ext_resource type="Script" path="res://player/final_cutscene.cs" id="1_0tyjs"]
 [ext_resource type="Texture2D" uid="uid://tl3gpj2swpl" path="res://Art/Scene_Three_Fallen.png" id="1_hxsxq"]
 [ext_resource type="VideoStream" path="res://Art/Cutscene 1.ogv" id="3_fxxmg"]
+[ext_resource type="AudioStream" uid="uid://cr7nqg0tcvaxb" path="res://Art/Songs/Intro Cutscene.mp3" id="4_7tubx"]
 
 [node name="FinalCutscene" type="Node2D"]
 script = ExtResource("1_0tyjs")
@@ -27,3 +28,7 @@ offset_bottom = 643.0
 stream = ExtResource("3_fxxmg")
 autoplay = true
 expand = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7tubx")
+autoplay = true

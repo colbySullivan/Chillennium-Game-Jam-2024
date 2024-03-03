@@ -34,5 +34,9 @@ public partial class PlayerVariables : Node
 	{
 		lives--;
   	}
+	public void FinalLevel()
+	{
+		lives = 5;
+  	}
 
 }

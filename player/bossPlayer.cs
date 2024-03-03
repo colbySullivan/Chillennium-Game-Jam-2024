@@ -77,8 +77,10 @@ public partial class bossPlayer : CharacterBody2D
 		if(body.Name == "Ouro")
 		{
 			var global = (PlayerVariables) GetNode("/root/PlayerVariables");
-			global.ResetSouls();
-			GetTree().ChangeSceneToFile("res://player/boss.tscn");
+			//global.ResetSouls();
+			global.RemoveLife();
+			if(global.GetLives() <= 0)
+				GetTree().ChangeSceneToFile("res://player/death_scene.tscn");
 		}
 	}
 

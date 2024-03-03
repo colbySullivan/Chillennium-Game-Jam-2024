@@ -8,11 +8,13 @@ public partial class final_cutscene : Node2D
 	{
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	// Called every frame. 'delta' is the elapsed time since the previ"res://Art/Songs/Fallen Stage Two.mp3"ous frame.
 	public override void _Process(double delta)
 	{
 		if (Input.IsActionJustPressed("ui_accept"))
 		{
+			var global = (PlayerVariables) GetNode("/root/PlayerVariables");
+			global.FinalLevel();
 			GetTree().ChangeSceneToFile("res://player/boss.tscn");
 		}
 	}
