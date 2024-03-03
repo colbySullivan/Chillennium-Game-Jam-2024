@@ -1,19 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://1m7nqai0fn8o"]
+[gd_scene load_steps=4 format=3 uid="uid://1m7nqai0fn8o"]
 
-[ext_resource type="Texture2D" uid="uid://ddtfh0jckj6xb" path="res://Art/Scene_One_BackgroundFallen.png" id="1_2kawx"]
 [ext_resource type="Script" path="res://player/FirstCutScene.cs" id="1_bfemc"]
+[ext_resource type="AudioStream" uid="uid://cr7nqg0tcvaxb" path="res://Art/Songs/Intro Cutscene.mp3" id="2_arewu"]
+[ext_resource type="VideoStream" path="res://Art/Songs/Opening Cutscene (1).ogv" id="3_oq56f"]
 
 [node name="Cutscene1" type="Node2D"]
+scale = Vector2(0.6, 0.6)
 script = ExtResource("1_bfemc")
 
-[node name="SceneOneBackgroundFallen" type="Sprite2D" parent="."]
-position = Vector2(586.5, 319.5)
-scale = Vector2(0.332286, 0.232632)
-texture = ExtResource("1_2kawx")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_arewu")
+autoplay = true
 
-[node name="Label" type="Label" parent="."]
-offset_left = 984.0
-offset_top = 600.0
-offset_right = 1130.0
-offset_bottom = 623.0
-text = "Press space to skip"
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("3_oq56f")
+autoplay = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

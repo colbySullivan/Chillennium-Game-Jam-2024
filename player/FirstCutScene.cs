@@ -19,7 +19,8 @@ public partial class FirstCutScene : Node2D
 	private void _on_button_timer_timeout()
 	{
 	}
+	private void _on_video_stream_player_finished()
+	{
+		GetTree().ChangeSceneToFile("res://level1/level1.tscn");
+	}
 }
-
-
-
