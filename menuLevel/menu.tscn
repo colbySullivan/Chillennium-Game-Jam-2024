@@ -70,7 +70,7 @@ text = "Quit
 stream = ExtResource("4_ellyx")
 autoplay = true
 
-[node name="FloaterTitle1" type="Sprite2D" parent="."]
+[node name="Fallen" type="Sprite2D" parent="."]
 position = Vector2(577, 111.5)
 scale = Vector2(0.636728, 0.810909)
 texture = ExtResource("8_4gjlk")

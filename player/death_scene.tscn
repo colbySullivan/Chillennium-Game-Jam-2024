@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhhi3s4xiflvc"]
+
+[ext_resource type="Script" path="res://DeathScene.cs" id="1_4vffn"]
+[ext_resource type="Texture2D" uid="uid://btapqkutxuojq" path="res://Art/spritesheet.png" id="2_bqjct"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oemr3"]
+atlas = ExtResource("2_bqjct")
+region = Rect2(0, 0, 920, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1jkf"]
+atlas = ExtResource("2_bqjct")
+region = Rect2(0, 540, 920, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edx07"]
+atlas = ExtResource("2_bqjct")
+region = Rect2(0, 1080, 920, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1n215"]
+atlas = ExtResource("2_bqjct")
+region = Rect2(0, 1620, 920, 540)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1cidx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oemr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1jkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edx07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1n215")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DeathScene" type="Node2D"]
+script = ExtResource("1_4vffn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(576.5, 324)
+scale = Vector2(1.25326, 1.21111)
+sprite_frames = SubResource("SpriteFrames_1cidx")
+frame_progress = 0.075657
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
