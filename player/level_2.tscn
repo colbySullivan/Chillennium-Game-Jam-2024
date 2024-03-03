@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://by636hudc04w1" path="res://Art/platforms/Pain 2.png" id="1_3r81t"]
 [ext_resource type="Script" path="res://player/level_2.cs" id="1_f3ssc"]
-[ext_resource type="Texture2D" uid="uid://ur30roapr32x" path="res://Art/Level_One_Tree_Background.png" id="1_fasf3"]
+[ext_resource type="Texture2D" uid="uid://d3jgip5lvkbpb" path="res://Art/LEVEL 2.png" id="2_dbk1d"]
 [ext_resource type="Texture2D" uid="uid://ohql2hmea0p2" path="res://Art/platforms/Pain 3.png" id="2_lihtu"]
 [ext_resource type="Texture2D" uid="uid://p2ks4dtlu2d1" path="res://Art/platforms/pain 4.png" id="3_kxwlq"]
 [ext_resource type="Texture2D" uid="uid://dlwp5d62kq0ki" path="res://Art/platforms/pain 5.png" id="4_8h8pa"]
@@ -1298,9 +1298,9 @@ script = ExtResource("1_f3ssc")
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(497, -824)
-scale = Vector2(0.853559, 0.968421)
-texture = ExtResource("1_fasf3")
+position = Vector2(770, -1422)
+scale = Vector2(10.5727, 13.3016)
+texture = ExtResource("2_dbk1d")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_k2y55")

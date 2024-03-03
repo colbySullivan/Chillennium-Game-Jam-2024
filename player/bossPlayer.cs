@@ -27,39 +27,45 @@ public partial class bossPlayer : CharacterBody2D
 		base._Ready();
 		var random = new RandomNumberGenerator();
 		_timer = GetParent().GetNode<Timer>("Countdown");
+		_animatedSprite.Play("bobbing");
 	}
 	
 	
 	public override void _PhysicsProcess(double delta)
 	{
 		// Skuffed state machine
-		if(_timer.TimeLeft > 70)
-		{
+		if(_timer.TimeLeft > 80)
 			_animatedSprite.Play("bobbing");
-			if(Position.X > delayedPos.X)
-				_animatedSprite.FlipH = true;
-			else
-				_animatedSprite.FlipH = false;
-			Velocity += (delayedPos - Position) / 100;
-			Vector2 velocity = Velocity;
-			// Add the gravity.
-			if (!IsOnFloor())
-				velocity.Y += gravity * (float)delta * 2;
-			else
-				velocity.Y = JumpVelocity;
-			Velocity = velocity;
-			MoveAndSlide();
-		}
-		if(_timer.TimeLeft <= 0)
-			GetTree().ChangeSceneToFile("res://player/victory_screen.tscn");
 		else
 		{
-			_animatedSprite.Play("flying");
-			if(Position.X > delayedPos.X)
-				_animatedSprite.FlipH = true;
+			if(_timer.TimeLeft > 70)
+			{
+				_animatedSprite.Play("bobbing");
+				if(Position.X > delayedPos.X)
+					_animatedSprite.FlipH = true;
+				else
+					_animatedSprite.FlipH = false;
+				Velocity += (delayedPos - Position) / 100;
+				Vector2 velocity = Velocity;
+				// Add the gravity.
+				if (!IsOnFloor())
+					velocity.Y += gravity * (float)delta * 2;
+				else
+					velocity.Y = JumpVelocity;
+				Velocity = velocity;
+				MoveAndSlide();
+			}
+			if(_timer.TimeLeft <= 0)
+				GetTree().ChangeSceneToFile("res://player/victory_screen.tscn");
 			else
-				_animatedSprite.FlipH = false;
-			Position += (delayedPos - Position) / 40;
+			{
+				_animatedSprite.Play("flying");
+				if(Position.X > delayedPos.X)
+					_animatedSprite.FlipH = true;
+				else
+					_animatedSprite.FlipH = false;
+				Position += (delayedPos - Position) / 40;
+			}
 		}
 	}
 	private void _on_timer_timeout()

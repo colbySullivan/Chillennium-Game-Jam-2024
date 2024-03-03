@@ -454,4 +454,13 @@ position = Vector2(765.75, 471.333)
 scale = Vector2(1.66576, 1.74568)
 texture = ExtResource("1_rvnts")
 
+[node name="Bat4" parent="." instance=ExtResource("5_6plnh")]
+position = Vector2(682.667, 113.333)
+
+[node name="Bat5" parent="." instance=ExtResource("5_6plnh")]
+position = Vector2(572, -1740)
+
+[node name="Bat6" parent="." instance=ExtResource("5_6plnh")]
+position = Vector2(-4866.67, -2306.67)
+
 [connection signal="timeout" from="Timer" to="Bat" method="_on_timer_timeout"]
