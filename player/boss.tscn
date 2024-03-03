@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://iw25bp1vvlpl"]
+[gd_scene load_steps=13 format=3 uid="uid://iw25bp1vvlpl"]
 
 [ext_resource type="Texture2D" uid="uid://gdnfu0nh5a78" path="res://Art/BASE LAYER.png" id="1_rvnts"]
 [ext_resource type="Texture2D" uid="uid://bxx0v55ippxtr" path="res://Art/platforms/Pain 1.png" id="2_enane"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cmwg7pwe300yl" path="res://player/bat.tscn" id="5_6plnh"]
 [ext_resource type="Script" path="res://player/batFinal.cs" id="6_l8xws"]
 [ext_resource type="AudioStream" uid="uid://cq6aoxbbxmhg" path="res://Art/Songs/Fallen Boss Level.mp3" id="8_v0vrf"]
+[ext_resource type="PackedScene" uid="uid://bn8s8sat7fdn4" path="res://menuLevel/soulsAndLives.tscn" id="9_yl2fp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5txo0"]
 size = Vector2(1800, 49)
@@ -425,5 +426,7 @@ layer_0/tile_data = PackedInt32Array(1179656, 0, 5, 1245192, 0, 6, 1310728, 0, 7
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_v0vrf")
 autoplay = true
+
+[node name="CanvasLayer2" parent="." instance=ExtResource("9_yl2fp")]
 
 [connection signal="timeout" from="Timer" to="Bat" method="_on_timer_timeout"]

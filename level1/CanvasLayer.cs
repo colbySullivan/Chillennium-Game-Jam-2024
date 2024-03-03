@@ -13,7 +13,7 @@ public partial class CanvasLayer : Godot.CanvasLayer
 	{
 		var global = (PlayerVariables) GetNode("/root/PlayerVariables");
 		var message = GetNode<Label>("Soul count");
-		message.Text = "Souls: " + global.GetSouls();
+		message.Text = "Souls: " + global.GetSouls() + "\n" + "Lives: " + global.GetLives();
 		message.Show();
 	}
 }

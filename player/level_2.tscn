@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cnsgfgmdadfan"]
+[gd_scene load_steps=17 format=3 uid="uid://cnsgfgmdadfan"]
 
 [ext_resource type="Texture2D" uid="uid://by636hudc04w1" path="res://Art/platforms/Pain 2.png" id="1_3r81t"]
 [ext_resource type="Script" path="res://player/level_2.cs" id="1_f3ssc"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dlwp5d62kq0ki" path="res://Art/platforms/pain 5.png" id="4_8h8pa"]
 [ext_resource type="PackedScene" uid="uid://cogywm1tc5fw1" path="res://player/ouro.tscn" id="5_ivsou"]
 [ext_resource type="AudioStream" uid="uid://fblofm0yqslp" path="res://Art/Songs/Fallen Stage Two.mp3" id="7_0ib57"]
+[ext_resource type="PackedScene" uid="uid://bn8s8sat7fdn4" path="res://menuLevel/soulsAndLives.tscn" id="8_0bgs6"]
 [ext_resource type="Texture2D" uid="uid://dc0c4ml1whsdk" path="res://Art/portal.png" id="8_mjpol"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aqs28"]
@@ -1306,6 +1307,8 @@ layer_0/tile_data = PackedInt32Array(2621440, 393217, 6, 2686976, 393217, 7, 275
 position = Vector2(201, 536)
 
 [node name="Camera2D" type="Camera2D" parent="Ouro"]
+
+[node name="CanvasLayer" parent="Ouro/Camera2D" instance=ExtResource("8_0bgs6")]
 
 [node name="Portal" type="Area2D" parent="."]
 position = Vector2(1044, 592)

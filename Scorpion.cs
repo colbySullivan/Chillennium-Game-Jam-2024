@@ -43,8 +43,16 @@ public partial class Scorpion : CharacterBody2D
 		if(body.Name == "Ouro")
 		{
 			var global = (PlayerVariables) GetNode("/root/PlayerVariables");
-			global.ResetSouls();
-			GetTree().ChangeSceneToFile("res://menuLevel/menu.tscn");
+			global.RemoveLife();
+				if(global.GetLives() > 0)
+				{
+					GetTree().ChangeSceneToFile("res://level1/level1.tscn");
+				}
+				else
+				{
+					global.ResetSouls();
+					GetTree().ChangeSceneToFile("res://player/death_scene.tscn");
+				}			
 		}
 	}
 	private void _on_attack_timer_timeout()

@@ -46,7 +46,7 @@ script = ExtResource("1_4vffn")
 position = Vector2(576.5, 324)
 scale = Vector2(1.25326, 1.21111)
 sprite_frames = SubResource("SpriteFrames_1cidx")
-frame_progress = 0.075657
+frame_progress = 0.839542
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
