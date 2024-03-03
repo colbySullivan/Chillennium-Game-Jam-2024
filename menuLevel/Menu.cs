@@ -37,4 +37,11 @@ public partial class Menu : Control
 	{
 		GetTree().ChangeSceneToFile("res://player/cutscene_1.tscn");
 	}
+	private void _on_credits_pressed()
+	{
+		GetTree().ChangeSceneToFile("res://player/end_credit.tscn");
+	}
 }
+
+
+
