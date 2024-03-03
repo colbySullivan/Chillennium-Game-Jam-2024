@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://DeathScene.cs" id="1_4vffn"]
 [ext_resource type="Texture2D" uid="uid://btapqkutxuojq" path="res://Art/spritesheet.png" id="2_bqjct"]
-[ext_resource type="AudioStream" uid="uid://dexd2oe1libh3" path="res://Art/Songs/Fallen Death.mp3" id="3_wuqbu"]
+[ext_resource type="AudioStream" uid="uid://drr8up0soo8gb" path="res://Art/Songs/Fallen Game Over.mp3" id="3_pkyl6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oemr3"]
 atlas = ExtResource("2_bqjct")
@@ -50,7 +50,7 @@ sprite_frames = SubResource("SpriteFrames_1cidx")
 frame_progress = 0.839542
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_wuqbu")
+stream = ExtResource("3_pkyl6")
 autoplay = true
 
 [node name="Control" type="Control" parent="."]

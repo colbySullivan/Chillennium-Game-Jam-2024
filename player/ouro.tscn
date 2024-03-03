@@ -1,8 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://cogywm1tc5fw1"]
+[gd_scene load_steps=15 format=3 uid="uid://cogywm1tc5fw1"]
 
 [ext_resource type="Script" path="res://player/Ouro.cs" id="1_77fd3"]
 [ext_resource type="Texture2D" uid="uid://cua78h6fy1o1g" path="res://Art/Ouro_Character.png" id="2_loirj"]
 [ext_resource type="Script" path="res://player/CollisionShape2D.cs" id="3_0d6g1"]
+[ext_resource type="Texture2D" uid="uid://bmfcy2dps518x" path="res://Art/ouro/1.PNG" id="3_qphyq"]
+[ext_resource type="Texture2D" uid="uid://bjfkuop8qdh27" path="res://Art/ouro/2.PNG" id="4_6p4jf"]
+[ext_resource type="Texture2D" uid="uid://5sfj3rmvhice" path="res://Art/ouro/3.PNG" id="5_gcquw"]
+[ext_resource type="Texture2D" uid="uid://deps4jw2jin4x" path="res://Art/ouro/4.PNG" id="6_oaxad"]
+[ext_resource type="Texture2D" uid="uid://bdymhprk2uw04" path="res://Art/ouro/5.PNG" id="7_v7sbi"]
+[ext_resource type="Texture2D" uid="uid://dibb6y5xtxf8y" path="res://Art/ouro/6.PNG" id="8_0covh"]
+[ext_resource type="Texture2D" uid="uid://6bct02r4vlue" path="res://Art/ouro/7.PNG" id="9_bowwa"]
+[ext_resource type="Texture2D" uid="uid://d0ll3enle333x" path="res://Art/ouro/8.PNG" id="10_add17"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uywoc"]
 size = Vector2(30, 63)
@@ -11,10 +19,39 @@ size = Vector2(30, 63)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_loirj")
+"texture": ExtResource("3_qphyq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6p4jf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gcquw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_oaxad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_v7sbi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0covh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bowwa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_add17")
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_loirj")
+}],
+"loop": true,
+"name": &"idle2",
 "speed": 5.0
 }]
 
@@ -34,7 +71,7 @@ position = Vector2(5, -9)
 scale = Vector2(0.498334, 0.496667)
 sprite_frames = SubResource("SpriteFrames_5tbgb")
 animation = &"idle"
-frame_progress = 0.497025
+frame_progress = 0.367276
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, -300)

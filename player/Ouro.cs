@@ -38,13 +38,13 @@ public partial class Ouro : CharacterBody2D
 			DrawLine(Vector2.Zero, ToLocal(_ray.GetCollisionPoint()), new Color(0, 1, 0, 1), 1);
 			DrawCircle(ToLocal(_ray.GetCollisionPoint()), 5, new Color(0, 1, 0, 1));
 			has_double_jump = true;
+			_animatedSprite.Play("idle");
 		}
 		
 	}
 	
 	public override void _PhysicsProcess(double delta)
 	{
-		_animatedSprite.Play("idle");
 		
 		//`draw_line(RaycastWeapon.position, RaycastWeapon.get_collision_point(), Color(1, 0, 0), 1)`
 //
@@ -68,12 +68,14 @@ public partial class Ouro : CharacterBody2D
 			velocity.Y = JumpVelocity;
 			if (has_double_jump)
 			{
+				_animatedSprite.Play("jump");
 				has_double_jump = false;
 				velocity.Y = JumpVelocity;	
 			}	
 		}
 		if(IsOnFloor())
 		{
+			_animatedSprite.Play("idle");
 			has_double_jump = true;
 		}
 		

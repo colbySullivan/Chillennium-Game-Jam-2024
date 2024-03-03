@@ -9,7 +9,7 @@ public partial class DeathScene : Node2D
 	{
 		_animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 	}
-
+"res://Art/Songs/Fallen Game Over.mp3"
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
