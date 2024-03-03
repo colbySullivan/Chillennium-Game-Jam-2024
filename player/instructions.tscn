@@ -7,6 +7,6 @@
 script = ExtResource("1_des2a")
 
 [node name="DirectionsScreen" type="Sprite2D" parent="."]
-position = Vector2(578.25, 327.25)
-scale = Vector2(0.600781, 0.599537)
+position = Vector2(576.5, 327.25)
+scale = Vector2(0.602604, 0.599537)
 texture = ExtResource("2_jsvvd")
