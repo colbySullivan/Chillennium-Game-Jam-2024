@@ -41,5 +41,9 @@ public partial class Menu : Control
 	private void _on_credits_pressed()
 	{
 		GetTree().ChangeSceneToFile("res://player/end_credit.tscn");
+	}	
+	private void _on_quit_2_pressed()
+	{
+		GetTree().ChangeSceneToFile("res://player/instructions.tscn");
 	}
 }
