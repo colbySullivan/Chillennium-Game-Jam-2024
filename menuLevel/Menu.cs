@@ -15,7 +15,7 @@ public partial class Menu : Control
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		// Currently, no continuous processing logic in this method
+		GetNode<Button>("Start").GrabFocus();
 	}
 
 	// Called when the "Start" button is pressed

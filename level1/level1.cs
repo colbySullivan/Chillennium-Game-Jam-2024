@@ -35,7 +35,7 @@ public partial class level1 : Node2D
 	{
 		if(body.Name == "Ouro")
 		{
-			GetTree().ChangeSceneToFile("res://level1/level1.cs");
+			GetTree().ChangeSceneToFile("res://player/death_scene.tscn");
 		}
 	}
 }

@@ -1314,10 +1314,11 @@ position = Vector2(201, 536)
 position = Vector2(1044, 592)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
-position = Vector2(0.5, 0)
+position = Vector2(-352, -1362)
 shape = SubResource("RectangleShape2D_dfoe6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Portal"]
+position = Vector2(-346, -1365)
 texture = ExtResource("8_mjpol")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

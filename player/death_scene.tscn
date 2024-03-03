@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhhi3s4xiflvc"]
+[gd_scene load_steps=9 format=3 uid="uid://dhhi3s4xiflvc"]
 
 [ext_resource type="Script" path="res://DeathScene.cs" id="1_4vffn"]
 [ext_resource type="Texture2D" uid="uid://btapqkutxuojq" path="res://Art/spritesheet.png" id="2_bqjct"]
+[ext_resource type="AudioStream" uid="uid://dexd2oe1libh3" path="res://Art/Songs/Fallen Death.mp3" id="3_wuqbu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oemr3"]
 atlas = ExtResource("2_bqjct")
@@ -48,9 +49,30 @@ scale = Vector2(1.25326, 1.21111)
 sprite_frames = SubResource("SpriteFrames_1cidx")
 frame_progress = 0.839542
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
-autostart = true
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wuqbu")
+autoplay = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 912.0
+offset_top = 520.0
+offset_right = 1147.0
+offset_bottom = 642.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Playagain" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Hang in there?"
+
+[node name="Quit" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Go home like a coward"
+
+[connection signal="pressed" from="Control/VBoxContainer/Playagain" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b280yfhp2jd4x"]
+[gd_scene load_steps=13 format=3 uid="uid://b280yfhp2jd4x"]
 
 [ext_resource type="Script" path="res://menuLevel/Menu.cs" id="1_rxl6w"]
 [ext_resource type="Texture2D" uid="uid://ccbu4diecx7fa" path="res://Art/title/Title 1.png" id="2_385jm"]
@@ -7,7 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://dmu5dppt7hhyr" path="res://Art/title/title 4.png" id="5_ctv6v"]
 [ext_resource type="Texture2D" uid="uid://dff0h0ngap4k3" path="res://Art/title/title 5.png" id="6_ng8js"]
 [ext_resource type="AudioStream" uid="uid://f1vcgygsl0ty" path="res://Art/Songs/Fallen Title Screen.mp3" id="7_604tq"]
+[ext_resource type="Texture2D" uid="uid://b04118uyxhh0b" path="res://Art/Button/start button.png" id="7_ph6sg"]
 [ext_resource type="Texture2D" uid="uid://bkp1875wpyrlt" path="res://Art/floater title 1.png" id="8_4gjlk"]
+[ext_resource type="Texture2D" uid="uid://ilpjccmvkhl1" path="res://Art/Button/Credits.png" id="8_bddf4"]
+[ext_resource type="Texture2D" uid="uid://cfalm1762sfq2" path="res://Art/Button/Quit.png" id="9_ac75i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k40il"]
 animations = [{
@@ -48,23 +51,25 @@ frame_progress = 0.0763553
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 874.0
-offset_top = 321.0
-offset_right = 1050.0
-offset_bottom = 387.0
+offset_left = 922.0
+offset_top = 269.0
+offset_right = 2002.0
+offset_bottom = 1921.0
+scale = Vector2(0.1, 0.1)
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Start"
+icon = ExtResource("7_ph6sg")
 
 [node name="Credits" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Credits"
+icon = ExtResource("8_bddf4")
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Quit
+text = "
 "
+icon = ExtResource("9_ac75i")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_604tq")

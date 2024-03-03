@@ -15,11 +15,12 @@ public partial class DeathScene : Node2D
 	{
 		_animatedSprite.Play("default");
 	}
-	private void _on_timer_timeout()
+	private void _on_button_pressed()
 	{
-		var global = (PlayerVariables) GetNode("/root/PlayerVariables");
-		global.ResetSouls();
+		GetTree().ChangeSceneToFile("res://level1/level1.tscn");
+	}	
+	private void _on_quit_pressed()
+	{
 		GetTree().ChangeSceneToFile("res://menuLevel/menu.tscn");
 	}
-
 }
