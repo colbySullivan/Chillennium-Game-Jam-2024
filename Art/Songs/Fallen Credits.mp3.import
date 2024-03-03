@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bpmjga0n83s63"
+path="res://.godot/imported/Fallen Credits.mp3-bc703acf88e7ccdd8d5d4f3f087fbd23.mp3str"
+
+[deps]
+
+source_file="res://Art/Songs/Fallen Credits.mp3"
+dest_files=["res://.godot/imported/Fallen Credits.mp3-bc703acf88e7ccdd8d5d4f3f087fbd23.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -34,7 +34,7 @@ script = ExtResource("1_7cnct")
 position = Vector2(-3, -23.5)
 scale = Vector2(0.31875, 0.270833)
 sprite_frames = SubResource("SpriteFrames_31sd7")
-frame_progress = 0.65856
+frame_progress = 0.666378
 
 [node name="AttackArea" type="Area2D" parent="."]
 
