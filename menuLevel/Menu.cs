@@ -10,12 +10,13 @@ public partial class Menu : Control
 		// Initializes the menu by grabbing focus on the "Start" button
 		GetNode<Button>("VBoxContainer/Start").GrabFocus();
 		LoadAnim = GetNode<AnimatedSprite2D>("LoadIn");
+		var button = GetNode<Button>("VBoxContainer/Start");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		GetNode<Button>("Start").GrabFocus();
+		//GetNode<Button>("VBoxContainer/Start").GrabFocus();
 	}
 
 	// Called when the "Start" button is pressed
@@ -24,7 +25,7 @@ public partial class Menu : Control
 		// Changes the scene to the "level1.tscn" file
 		LoadAnim.Play("default");
 		// Moved this to after animation is done
-		//GetTree().ChangeSceneToFile("res://levels/level1.tscn");
+		GetTree().ChangeSceneToFile("res://level1/level1.tscn");
 	}
 
 	// Called when the "Quit" button is pressed
@@ -42,6 +43,3 @@ public partial class Menu : Control
 		GetTree().ChangeSceneToFile("res://player/end_credit.tscn");
 	}
 }
-
-
-

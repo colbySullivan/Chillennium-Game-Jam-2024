@@ -51,25 +51,38 @@ frame_progress = 0.0763553
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 922.0
-offset_top = 269.0
-offset_right = 2002.0
-offset_bottom = 1921.0
-scale = Vector2(0.1, 0.1)
+offset_left = 96.0
+offset_top = 337.0
+offset_right = 248.0
+offset_bottom = 446.0
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-icon = ExtResource("7_ph6sg")
+text = "
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Start"]
+position = Vector2(74, 14.5)
+scale = Vector2(0.154348, 0.0648148)
+texture = ExtResource("7_ph6sg")
 
 [node name="Credits" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-icon = ExtResource("8_bddf4")
+text = " "
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Credits"]
+position = Vector2(74, 14.5)
+scale = Vector2(0.154348, 0.0648148)
+texture = ExtResource("8_bddf4")
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "
-"
-icon = ExtResource("9_ac75i")
+text = " "
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Quit"]
+position = Vector2(74, 14.5)
+scale = Vector2(0.154348, 0.0648148)
+texture = ExtResource("9_ac75i")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_604tq")
