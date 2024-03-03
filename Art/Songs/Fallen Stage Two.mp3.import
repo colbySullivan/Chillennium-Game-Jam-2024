@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Fallen Stage Two.mp3-49d1825fc5f584fabdd3aefe
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

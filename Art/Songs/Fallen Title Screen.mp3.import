@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Fallen Title Screen.mp3-edae4584b7301d2d6f65a
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
