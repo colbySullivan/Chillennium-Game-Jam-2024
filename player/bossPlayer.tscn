@@ -52,7 +52,7 @@ position = Vector2(-4, 0.999998)
 scale = Vector2(0.308333, 0.258333)
 sprite_frames = SubResource("SpriteFrames_al784")
 animation = &"bobbing"
-frame_progress = 0.748274
+frame_progress = 0.179126
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-7, 75)
@@ -68,12 +68,12 @@ position = Vector2(0.249969, 2.24997)
 position = Vector2(-4.24997, -0.249969)
 shape = SubResource("RectangleShape2D_tsavs")
 
-[node name="AttackBox" type="Area2D" parent="."]
+[node name="AttackArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(-6, 15)
 shape = SubResource("RectangleShape2D_liigi")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_shape_entered" from="HitBox" to="." method="_on_hit_box_area_shape_entered"]
-[connection signal="body_entered" from="AttackBox" to="." method="_on_attack_box_body_entered"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_box_body_entered"]

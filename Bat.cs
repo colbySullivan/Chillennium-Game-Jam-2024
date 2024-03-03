@@ -3,7 +3,7 @@ using System;
 
 public partial class Bat : CharacterBody2D
 {
-	public const float Speed = 5.0f;
+	public const float Speed = 2.0f;
 	private AnimatedSprite2D _animatedSprite;
 	
 	public CharacterBody2D _Ouro;
@@ -20,7 +20,7 @@ public partial class Bat : CharacterBody2D
 		_Ouro = GetParent().GetNode<CharacterBody2D>("Ouro");
 		base._Ready();
 		var random = new RandomNumberGenerator();
-		Position = _Ouro.Position + new Vector2(random.RandiRange(100, 500),random.RandiRange(100, 500));
+		//Position = _Ouro.Position + new Vector2(random.RandiRange(100, 500),random.RandiRange(100, 500));
 	}
 	
 	
@@ -41,7 +41,7 @@ public partial class Bat : CharacterBody2D
 			global.RemoveLife();
 			if(global.GetLives() > 0)
 			{
-				GetTree().ChangeSceneToFile("res://level1/level1.tscn");
+				//GetTree().ChangeSceneToFile("res://level1/level1.tscn");
 			}
 			else
 			{

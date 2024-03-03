@@ -1,7 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://cogywm1tc5fw1"]
+[gd_scene load_steps=36 format=3 uid="uid://cogywm1tc5fw1"]
 
 [ext_resource type="Script" path="res://player/Ouro.cs" id="1_77fd3"]
+[ext_resource type="Texture2D" uid="uid://4jyka7c4xh5p" path="res://Art/ouro/hit/GET HIT 1.png" id="2_yv2yy"]
 [ext_resource type="Script" path="res://player/CollisionShape2D.cs" id="3_0d6g1"]
+[ext_resource type="Texture2D" uid="uid://crdwhnxx2wrt" path="res://Art/ouro/hit/Ouro walking 1.png" id="3_q41nc"]
 [ext_resource type="Texture2D" uid="uid://bmfcy2dps518x" path="res://Art/ouro/1.PNG" id="3_qphyq"]
 [ext_resource type="Texture2D" uid="uid://bjfkuop8qdh27" path="res://Art/ouro/2.PNG" id="4_6p4jf"]
 [ext_resource type="Texture2D" uid="uid://5sfj3rmvhice" path="res://Art/ouro/3.PNG" id="5_gcquw"]
@@ -27,12 +29,24 @@
 [ext_resource type="Texture2D" uid="uid://c6nhauul2kjvm" path="res://Art/ouro_walking/Ouro walking 15.png" id="24_v6cbo"]
 [ext_resource type="Texture2D" uid="uid://lq7d483olwd3" path="res://Art/ouro_walking/Ouro walking 16.png" id="25_7nwr3"]
 [ext_resource type="Texture2D" uid="uid://cfqbe226u40qc" path="res://Art/ouro_walking/Ouro walking 17.png" id="26_7sbmb"]
+[ext_resource type="PackedScene" uid="uid://qk61l00ffsgj" path="res://player/smokeSprite.tscn" id="30_1rc8c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uywoc"]
-size = Vector2(30, 63)
+size = Vector2(30, 61)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5tbgb"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yv2yy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q41nc")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 1.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_qphyq")
@@ -142,12 +156,19 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjlf4"]
 size = Vector2(76, 26)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_103gm"]
+radius = 13.0
+height = 56.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7f5d"]
+size = Vector2(30, 6)
+
 [node name="Ouro" type="CharacterBody2D"]
 slide_on_ceiling = false
 script = ExtResource("1_77fd3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -11.5)
+position = Vector2(1, -9.5)
 shape = SubResource("RectangleShape2D_uywoc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -155,7 +176,7 @@ position = Vector2(5, -9)
 scale = Vector2(0.498334, 0.496667)
 sprite_frames = SubResource("SpriteFrames_5tbgb")
 animation = &"jump"
-frame_progress = 0.197906
+frame_progress = 0.368197
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, -300)
@@ -168,4 +189,26 @@ shape = SubResource("RectangleShape2D_hjlf4")
 disabled = true
 script = ExtResource("3_0d6g1")
 
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(2, -10)
+shape = SubResource("CapsuleShape2D_103gm")
+
+[node name="Smoke" parent="." instance=ExtResource("30_1rc8c")]
+visible = false
+position = Vector2(0, -13)
+scale = Vector2(0.409375, 0.401786)
+frame_progress = 0.0665129
+
+[node name="Stomp" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stomp"]
+position = Vector2(1, 20)
+shape = SubResource("RectangleShape2D_b7f5d")
+
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="draw" from="RayCast2D" to="." method="_on_ray_cast_2d_draw"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="animation_looped" from="Smoke" to="." method="_on_smoke_animation_looped"]
+[connection signal="area_entered" from="Stomp" to="." method="_on_stomp_area_entered"]
