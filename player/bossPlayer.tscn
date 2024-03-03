@@ -51,8 +51,8 @@ script = ExtResource("1_pyktd")
 position = Vector2(-4, 0.999998)
 scale = Vector2(0.308333, 0.258333)
 sprite_frames = SubResource("SpriteFrames_al784")
-animation = &"bobbing"
-frame_progress = 0.679611
+animation = &"flying"
+frame_progress = 0.78387
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-7, 75)

@@ -362,6 +362,11 @@ size = Vector2(1891.33, 20)
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_pq6it")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(765.75, 432)
+scale = Vector2(1.66576, 1.6)
+texture = ExtResource("1_rvnts")
+
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 offset_left = -4.0
 offset_top = -3.0
@@ -452,12 +457,6 @@ position = Vector2(406.667, -29694.7)
 
 [node name="Squirrel2" parent="." instance=ExtResource("11_gqfnc")]
 position = Vector2(1421.33, -29624)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(765.75, 471.333)
-scale = Vector2(1.66576, 1.74568)
-texture = ExtResource("1_rvnts")
 
 [node name="Bat4" parent="." instance=ExtResource("5_6plnh")]
 position = Vector2(1532, 220)

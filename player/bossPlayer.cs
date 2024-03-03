@@ -40,7 +40,7 @@ public partial class bossPlayer : CharacterBody2D
 		{
 			if(_timer.TimeLeft > 26)
 			{
-				_animatedSprite.Play("bobbing");
+				_animatedSprite.Play("flying");
 				if(Position.X > delayedPos.X)
 					_animatedSprite.FlipH = true;
 				else
