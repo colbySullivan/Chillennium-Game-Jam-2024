@@ -29,6 +29,7 @@ public partial class Ouro : CharacterBody2D
 		_animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		_ray = GetNode<RayCast2D>("RayCast2D");
 		_sceneName = GetTree().CurrentScene.Name;
+		_animatedSprite.Play("walking");
 	}
 	
 	public override void _Draw()
@@ -38,7 +39,6 @@ public partial class Ouro : CharacterBody2D
 			DrawLine(Vector2.Zero, ToLocal(_ray.GetCollisionPoint()), new Color(0, 1, 0, 1), 1);
 			DrawCircle(ToLocal(_ray.GetCollisionPoint()), 5, new Color(0, 1, 0, 1));
 			has_double_jump = true;
-			_animatedSprite.Play("idle");
 		}
 		
 	}
@@ -60,7 +60,10 @@ public partial class Ouro : CharacterBody2D
 
 		// Add the gravity.
 		if (!IsOnFloor())
+		{
 			velocity.Y += gravity * (float)delta;
+			_animatedSprite.Play("jump");
+		}
 
 		// Handle Jump.
 		if (Input.IsActionJustPressed("ui_accept") && ((IsOnFloor() || grapple) || has_double_jump))
@@ -68,14 +71,13 @@ public partial class Ouro : CharacterBody2D
 			velocity.Y = JumpVelocity;
 			if (has_double_jump)
 			{
-				_animatedSprite.Play("jump");
 				has_double_jump = false;
 				velocity.Y = JumpVelocity;	
 			}	
 		}
 		if(IsOnFloor())
 		{
-			_animatedSprite.Play("idle");
+			_animatedSprite.Play("walking");
 			has_double_jump = true;
 		}
 		

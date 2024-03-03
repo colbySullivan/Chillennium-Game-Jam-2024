@@ -6,7 +6,7 @@ public partial class Scorpion : CharacterBody2D
 	public const float Speed = 2.0f;
 	private AnimatedSprite2D _animatedSprite;
 	
-	public CharacterBody2D _Ouro;
+	//public CharacterBody2D _Ouro;
 	
 	public Vector2 delayedPos;
 
@@ -17,7 +17,7 @@ public partial class Scorpion : CharacterBody2D
 	public override void _Ready()
 	{	
 		_animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-		_Ouro = GetParent().GetNode<CharacterBody2D>("Ouro");
+		//_Ouro = GetParent().GetNode<CharacterBody2D>("Ouro");
 		base._Ready();
 	}
 	
@@ -57,7 +57,7 @@ public partial class Scorpion : CharacterBody2D
 	}
 	private void _on_attack_timer_timeout()
 	{
-		delayedPos = _Ouro.Position;
+		//delayedPos = _Ouro.Position;
 	}
 	private void _stomp(Node2D body)
 	{

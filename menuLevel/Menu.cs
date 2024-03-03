@@ -25,7 +25,7 @@ public partial class Menu : Control
 		// Changes the scene to the "level1.tscn" file
 		LoadAnim.Play("default");
 		// Moved this to after animation is done
-		GetTree().ChangeSceneToFile("res://level1/level1.tscn");
+		GetTree().ChangeSceneToFile("res://player/cutscene_1.tscn");
 	}
 
 	// Called when the "Quit" button is pressed

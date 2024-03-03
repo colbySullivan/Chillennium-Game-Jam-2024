@@ -39,7 +39,7 @@ public partial class squirrel : CharacterBody2D
 		{
 			var global = (PlayerVariables) GetNode("/root/PlayerVariables");
 			global.ResetSouls();
-			GetTree().ChangeSceneToFile("res://menuLevel/menu.tscn");
+			GetTree().ChangeSceneToFile("res://player/death_scene.tscn");
 		}
 	}
 	private void _on_attack_timer_timeout()
