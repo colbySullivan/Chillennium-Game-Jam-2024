@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://1m7nqai0fn8o"]
+
+[ext_resource type="Script" path="res://scripts/cutscene_1.cs" id="1_hmnft"]
+[ext_resource type="AudioStream" uid="uid://cr7nqg0tcvaxb" path="res://Art/Songs/Intro Cutscene.mp3" id="2_4fu5d"]
+[ext_resource type="VideoStream" path="res://Art/Songs/Opening Cutscene (1).ogv" id="3_d5stf"]
+
+[node name="Cutscene1" type="Node2D"]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_hmnft")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4fu5d")
+autoplay = true
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("3_d5stf")
+autoplay = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

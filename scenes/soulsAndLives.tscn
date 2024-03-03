@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn8s8sat7fdn4"]
+
+[ext_resource type="Script" path="res://scripts/CanvasLayer.cs" id="1_6jffg"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_6jffg")
+
+[node name="Soul count" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 25
+text = "Test"
+metadata/_edit_use_anchors_ = true

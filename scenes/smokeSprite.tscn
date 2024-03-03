@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://qk61l00ffsgj"]
+
+[ext_resource type="Texture2D" uid="uid://cef5pgofvse36" path="res://Art/ouro/smoke/SMOKE 1.png" id="1_ogu6o"]
+[ext_resource type="Texture2D" uid="uid://bsb3xhe4vnhfl" path="res://Art/ouro/smoke/SMOKE 2.png" id="2_44cgd"]
+[ext_resource type="Texture2D" uid="uid://b3hkiu2awjxfs" path="res://Art/ouro/smoke/SMOKE 3.png" id="3_4ww8o"]
+[ext_resource type="Texture2D" uid="uid://bvkgv7r5p0rnp" path="res://Art/ouro/smoke/SMOKE 4.png" id="4_3yoif"]
+[ext_resource type="Texture2D" uid="uid://crgwv40mp17f5" path="res://Art/ouro/smoke/SMOKE 5.png" id="5_ldmtw"]
+[ext_resource type="Texture2D" uid="uid://dadvjv26in46q" path="res://Art/ouro/smoke/SMOKE 6.png" id="6_2iomb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_414cw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ogu6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_44cgd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4ww8o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3yoif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ldmtw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2iomb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+position = Vector2(-0.999992, 3)
+scale = Vector2(0.465625, 0.375)
+sprite_frames = SubResource("SpriteFrames_414cw")
+frame_progress = 0.735426

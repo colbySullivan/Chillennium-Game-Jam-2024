@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhhi3s4xiflvc"]
+
+[ext_resource type="Script" path="res://scripts/death_scene.cs" id="1_svaew"]
+[ext_resource type="Texture2D" uid="uid://btapqkutxuojq" path="res://Art/spritesheet.png" id="2_o6ruw"]
+[ext_resource type="AudioStream" uid="uid://drr8up0soo8gb" path="res://Art/Songs/Fallen Game Over.mp3" id="3_300r0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oemr3"]
+atlas = ExtResource("2_o6ruw")
+region = Rect2(0, 0, 920, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1jkf"]
+atlas = ExtResource("2_o6ruw")
+region = Rect2(0, 540, 920, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edx07"]
+atlas = ExtResource("2_o6ruw")
+region = Rect2(0, 1080, 920, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1n215"]
+atlas = ExtResource("2_o6ruw")
+region = Rect2(0, 1620, 920, 540)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1cidx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oemr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1jkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edx07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1n215")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DeathScene" type="Node2D"]
+script = ExtResource("1_svaew")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(576.5, 324)
+scale = Vector2(1.25326, 1.21111)
+sprite_frames = SubResource("SpriteFrames_1cidx")
+frame_progress = 0.839542
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_300r0")
+autoplay = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 912.0
+offset_top = 520.0
+offset_right = 1147.0
+offset_bottom = 642.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Playagain" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Hang in there?"
+
+[node name="Quit" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Go home like a coward"
+
+[connection signal="pressed" from="Control/VBoxContainer/Playagain" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

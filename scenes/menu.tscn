@@ -1,0 +1,124 @@
+[gd_scene load_steps=15 format=3 uid="uid://b280yfhp2jd4x"]
+
+[ext_resource type="Script" path="res://scripts/Menu.cs" id="1_1d7o0"]
+[ext_resource type="Texture2D" uid="uid://ccbu4diecx7fa" path="res://Art/title/Title 1.png" id="2_qoycw"]
+[ext_resource type="Texture2D" uid="uid://uur572gnj1ty" path="res://Art/title/title 2.png" id="3_qxs5r"]
+[ext_resource type="Texture2D" uid="uid://bptmw2j7vgi3x" path="res://Art/title/title 3.png" id="4_5vide"]
+[ext_resource type="Texture2D" uid="uid://dmu5dppt7hhyr" path="res://Art/title/title 4.png" id="5_j3a1j"]
+[ext_resource type="Texture2D" uid="uid://dff0h0ngap4k3" path="res://Art/title/title 5.png" id="6_04ry6"]
+[ext_resource type="Texture2D" uid="uid://b04118uyxhh0b" path="res://Art/Button/start button.png" id="7_2tc72"]
+[ext_resource type="Texture2D" uid="uid://dfg3el1tlchy" path="res://Art/Button/How to play.png" id="8_x7nf3"]
+[ext_resource type="Texture2D" uid="uid://ilpjccmvkhl1" path="res://Art/Button/Credits.png" id="9_yqou6"]
+[ext_resource type="Texture2D" uid="uid://cfalm1762sfq2" path="res://Art/Button/Quit.png" id="10_570oj"]
+[ext_resource type="AudioStream" uid="uid://f1vcgygsl0ty" path="res://Art/Songs/Fallen Title Screen.mp3" id="11_aaq6c"]
+[ext_resource type="Texture2D" uid="uid://bkp1875wpyrlt" path="res://Art/floater title 1.png" id="12_nt83e"]
+[ext_resource type="Texture2D" uid="uid://cuspyitdki0d6" path="res://Art/Button/Full ost.png" id="13_ngwss"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k40il"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qoycw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qxs5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5vide")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j3a1j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_04ry6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 650.0
+script = ExtResource("1_1d7o0")
+
+[node name="LoadIn" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 325.5)
+scale = Vector2(0.603125, 0.610185)
+sprite_frames = SubResource("SpriteFrames_k40il")
+frame = 3
+frame_progress = 0.0763553
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 337.0
+offset_right = 248.0
+offset_bottom = 446.0
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Start"]
+position = Vector2(74, 14.5)
+scale = Vector2(0.154348, 0.0648148)
+texture = ExtResource("7_2tc72")
+
+[node name="howTo" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = " "
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/howTo"]
+position = Vector2(74, 14.5)
+scale = Vector2(0.154348, 0.0648148)
+texture = ExtResource("8_x7nf3")
+
+[node name="Credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = " "
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Credits"]
+position = Vector2(74, 14.5)
+scale = Vector2(0.154348, 0.0648148)
+texture = ExtResource("9_yqou6")
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = " "
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Quit"]
+position = Vector2(74, 14.5)
+scale = Vector2(0.154348, 0.0648148)
+texture = ExtResource("10_570oj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_aaq6c")
+autoplay = true
+
+[node name="Fallen" type="Sprite2D" parent="."]
+position = Vector2(577, 111.5)
+scale = Vector2(0.636728, 0.810909)
+texture = ExtResource("12_nt83e")
+
+[node name="LinkButton" type="LinkButton" parent="."]
+layout_mode = 2
+offset_left = 886.0
+offset_top = 366.0
+offset_right = 1038.0
+offset_bottom = 410.0
+uri = "https://youtu.be/Jn_bkwPnz1w"
+
+[node name="Sprite2D" type="Sprite2D" parent="LinkButton"]
+position = Vector2(77, 17.75)
+scale = Vector2(0.154348, 0.0824073)
+texture = ExtResource("13_ngwss")
+
+[connection signal="animation_looped" from="LoadIn" to="." method="_on_load_in_animation_looped"]
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/howTo" to="." method="_on_quit_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

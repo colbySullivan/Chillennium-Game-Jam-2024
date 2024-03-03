@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://bcc8prk3rpbl5"]
+
+[ext_resource type="Script" path="res://scripts/Scorpion.cs" id="1_mnhql"]
+[ext_resource type="Texture2D" uid="uid://b50lvhb3jb1so" path="res://Art/scorpion 1.png" id="2_l7boy"]
+[ext_resource type="Texture2D" uid="uid://dq5h6vu53j07j" path="res://Art/scorpion 2.png" id="3_jpfo3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_31sd7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_l7boy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jpfo3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gl7ix"]
+size = Vector2(71, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yp6i"]
+size = Vector2(34, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2til"]
+size = Vector2(41.5, 12.5)
+
+[node name="Scorpion" type="CharacterBody2D"]
+script = ExtResource("1_mnhql")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, -23.5)
+scale = Vector2(0.31875, 0.270833)
+sprite_frames = SubResource("SpriteFrames_31sd7")
+frame_progress = 0.612617
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="HitBox" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-0.999977, -2.50001)
+shape = SubResource("RectangleShape2D_gl7ix")
+
+[node name="Tail" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(16, -28)
+shape = SubResource("RectangleShape2D_3yp6i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.99998, -0.500008)
+shape = SubResource("RectangleShape2D_p2til")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 3.437
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

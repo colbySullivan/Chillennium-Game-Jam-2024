@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmxeyekmdupgf"]
+
+[ext_resource type="Script" path="res://scripts/end_credit.cs" id="1_d1fpi"]
+[ext_resource type="VideoStream" path="res://Art/End Credits w_o music.ogv" id="2_01a0t"]
+[ext_resource type="AudioStream" uid="uid://baukw4tndf01d" path="res://Art/Fallen Credits.mp3" id="3_ovba6"]
+
+[node name="EndCredit" type="Node2D"]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_d1fpi")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1088.0
+stream = ExtResource("2_01a0t")
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ovba6")
+autoplay = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
