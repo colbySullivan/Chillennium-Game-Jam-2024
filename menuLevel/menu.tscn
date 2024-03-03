@@ -110,7 +110,6 @@ offset_left = 886.0
 offset_top = 366.0
 offset_right = 1038.0
 offset_bottom = 410.0
-text = " "
 uri = "https://youtu.be/Jn_bkwPnz1w"
 
 [node name="Sprite2D" type="Sprite2D" parent="LinkButton"]

@@ -8,6 +8,7 @@ public partial class DeathScene : Node2D
 	public override void _Ready()
 	{
 		_animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		GetNode<Button>("Control/VBoxContainer/Playagain").GrabFocus();
 	}
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)

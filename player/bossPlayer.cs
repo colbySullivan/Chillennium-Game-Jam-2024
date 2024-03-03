@@ -51,7 +51,7 @@ public partial class bossPlayer : CharacterBody2D
 			MoveAndSlide();
 		}
 		if(_timer.TimeLeft <= 0)
-			GetTree().ChangeSceneToFile("res://player/end_credit.tscn");
+			GetTree().ChangeSceneToFile("res://player/victory_screen.tscn");
 		else
 		{
 			_animatedSprite.Play("flying");

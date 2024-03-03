@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://iw25bp1vvlpl"]
+[gd_scene load_steps=15 format=3 uid="uid://iw25bp1vvlpl"]
 
+[ext_resource type="VideoStream" path="res://Art/Timer.ogv" id="1_owdkd"]
 [ext_resource type="Texture2D" uid="uid://gdnfu0nh5a78" path="res://Art/BASE LAYER.png" id="1_rvnts"]
 [ext_resource type="Texture2D" uid="uid://bxx0v55ippxtr" path="res://Art/platforms/Pain 1.png" id="2_enane"]
 [ext_resource type="PackedScene" uid="uid://br1hvaxf2tn4r" path="res://player/bossPlayer.tscn" id="3_8ys6q"]
@@ -9,6 +10,7 @@
 [ext_resource type="Script" path="res://player/batFinal.cs" id="6_l8xws"]
 [ext_resource type="AudioStream" uid="uid://cq6aoxbbxmhg" path="res://Art/Songs/Fallen Boss Level.mp3" id="8_v0vrf"]
 [ext_resource type="PackedScene" uid="uid://bn8s8sat7fdn4" path="res://menuLevel/soulsAndLives.tscn" id="9_yl2fp"]
+[ext_resource type="PackedScene" uid="uid://cq32r0fb0jvgi" path="res://player/squirrel.tscn" id="11_gqfnc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5txo0"]
 size = Vector2(1800, 49)
@@ -42,6 +44,8 @@ texture = ExtResource("2_enane")
 15:4/0 = 0
 15:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:4/0/physics_layer_0/angular_velocity = 0.0
+15:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.5, 8, 8, 1.625, 8, 8, 0.375, 8)
+15:4/0/physics_layer_0/polygon_0/one_way = true
 16:4/0 = 0
 16:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 16:4/0/physics_layer_0/angular_velocity = 0.0
@@ -111,6 +115,8 @@ texture = ExtResource("2_enane")
 16:5/0 = 0
 16:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 16:5/0/physics_layer_0/angular_velocity = 0.0
+16:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -0.25, -8, -8, 8, -8)
+16:5/0/physics_layer_0/polygon_0/one_way = true
 17:5/0 = 0
 17:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:5/0/physics_layer_0/angular_velocity = 0.0
@@ -351,10 +357,14 @@ sources/0 = SubResource("TileSetAtlasSource_32l50")
 [node name="BossLevel" type="Node2D"]
 scale = Vector2(0.75, 0.75)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(765.75, 471.333)
-scale = Vector2(1.66576, 1.74568)
-texture = ExtResource("1_rvnts")
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -4.0
+offset_top = -3.0
+offset_right = 1532.0
+offset_bottom = 877.0
+stream = ExtResource("1_owdkd")
+autoplay = true
+expand = true
 
 [node name="Boss" parent="." instance=ExtResource("3_8ys6q")]
 position = Vector2(1181.33, 502.667)
@@ -373,6 +383,7 @@ shape = SubResource("RectangleShape2D_5txo0")
 [node name="FloorTop" type="CollisionShape2D" parent="FloorFolder"]
 position = Vector2(688, -432)
 shape = SubResource("RectangleShape2D_5txo0")
+disabled = true
 
 [node name="FloorRight" type="CollisionShape2D" parent="FloorFolder"]
 position = Vector2(1557.33, 284)
@@ -380,14 +391,16 @@ rotation = -1.5708
 shape = SubResource("RectangleShape2D_5txo0")
 
 [node name="Countdown" type="Timer" parent="."]
-wait_time = 76.0
+wait_time = 96.0
 one_shot = true
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("4_i8uvd")
 
 [node name="TimeLeft" type="Label" parent="CanvasLayer"]
+visible = false
 anchors_preset = -1
 anchor_left = 0.352
 anchor_top = 0.073
@@ -428,5 +441,17 @@ stream = ExtResource("8_v0vrf")
 autoplay = true
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("9_yl2fp")]
+
+[node name="Squirrel" parent="." instance=ExtResource("11_gqfnc")]
+position = Vector2(406.667, -29694.7)
+
+[node name="Squirrel2" parent="." instance=ExtResource("11_gqfnc")]
+position = Vector2(1421.33, -29624)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(765.75, 471.333)
+scale = Vector2(1.66576, 1.74568)
+texture = ExtResource("1_rvnts")
 
 [connection signal="timeout" from="Timer" to="Bat" method="_on_timer_timeout"]
