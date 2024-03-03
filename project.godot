@@ -21,7 +21,7 @@ PlayerVariables="*res://PlayerVariables.cs"
 
 [display]
 
-window/stretch/aspect="expand"
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
@@ -29,7 +29,7 @@ project/assembly_name="Chillennium Game Jam 2024"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/nklbdev.importality/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 

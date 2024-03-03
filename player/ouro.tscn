@@ -30,10 +30,11 @@ position = Vector2(1, -11.5)
 shape = SubResource("RectangleShape2D_uywoc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(4, -9)
+position = Vector2(5, -9)
 scale = Vector2(0.498334, 0.496667)
 sprite_frames = SubResource("SpriteFrames_5tbgb")
 animation = &"idle"
+frame_progress = 0.497025
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, -300)

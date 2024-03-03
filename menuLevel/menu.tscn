@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://ccbu4diecx7fa" path="res://Art/title/Title 1.png" id="2_385jm"]
 [ext_resource type="Texture2D" uid="uid://uur572gnj1ty" path="res://Art/title/title 2.png" id="3_sdj5g"]
 [ext_resource type="Texture2D" uid="uid://bptmw2j7vgi3x" path="res://Art/title/title 3.png" id="4_dvo5e"]
-[ext_resource type="AudioStream" uid="uid://tcf2dxqgbmxy" path="res://Art/Fallen_Title_Screen.mp3" id="4_ellyx"]
 [ext_resource type="Texture2D" uid="uid://dmu5dppt7hhyr" path="res://Art/title/title 4.png" id="5_ctv6v"]
 [ext_resource type="Texture2D" uid="uid://dff0h0ngap4k3" path="res://Art/title/title 5.png" id="6_ng8js"]
+[ext_resource type="AudioStream" uid="uid://f1vcgygsl0ty" path="res://Art/Songs/Fallen Title Screen.mp3" id="7_604tq"]
 [ext_resource type="Texture2D" uid="uid://bkp1875wpyrlt" path="res://Art/floater title 1.png" id="8_4gjlk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k40il"]
@@ -67,7 +67,7 @@ text = "Quit
 "
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ellyx")
+stream = ExtResource("7_604tq")
 autoplay = true
 
 [node name="Fallen" type="Sprite2D" parent="."]
