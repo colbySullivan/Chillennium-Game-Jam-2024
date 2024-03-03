@@ -106,16 +106,16 @@ texture = ExtResource("8_4gjlk")
 
 [node name="LinkButton" type="LinkButton" parent="."]
 layout_mode = 2
-offset_left = 882.0
-offset_top = 358.0
-offset_right = 1034.0
-offset_bottom = 402.0
+offset_left = 886.0
+offset_top = 366.0
+offset_right = 1038.0
+offset_bottom = 410.0
 text = " "
 uri = "https://youtu.be/Jn_bkwPnz1w"
 
 [node name="Sprite2D" type="Sprite2D" parent="LinkButton"]
-position = Vector2(77, 13)
-scale = Vector2(0.154348, 0.0648148)
+position = Vector2(77, 17.75)
+scale = Vector2(0.154348, 0.0824073)
 texture = ExtResource("13_5rnuj")
 
 [connection signal="animation_looped" from="LoadIn" to="." method="_on_load_in_animation_looped"]
