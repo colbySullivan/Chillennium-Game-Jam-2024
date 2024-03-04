@@ -18,7 +18,7 @@ Gif Maker, Krita, Medibang Paint Pro
 Google Documents, Google Drive, YouTube
 
 #### itch.io
-https://ovalofobsidian.itch.io/fallen
+https://irishtrolls.itch.io/fallen
 
 #### Full OST
 https://www.youtube.com/watch?v=Jn_bkwPnz1w 
